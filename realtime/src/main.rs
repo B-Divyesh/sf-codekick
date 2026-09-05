@@ -2,7 +2,7 @@ use std::{
     collections::{HashMap, HashSet, VecDeque},
     env,
     net::{IpAddr, SocketAddr},
-    path::{Path as FilePath, PathBuf},
+    path::Path as FilePath,
     sync::{Arc, Mutex},
     time::{Duration, Instant, SystemTime, UNIX_EPOCH},
 };
@@ -36,7 +36,7 @@ const SLOTS: [&str; 4] = ["sun-1", "tide-1", "sun-2", "tide-2"];
 
 #[derive(Clone)]
 struct AppState {
-    database_path: PathBuf,
+    database: Arc<Mutex<Connection>>,
     rooms: Arc<Mutex<HashMap<String, Room>>>,
     requests: Arc<Mutex<HashMap<IpAddr, VecDeque<Instant>>>>,
     match_seconds: f64,
@@ -450,60 +450,39 @@ fn starting_players() -> Vec<Player> {
 
 impl AppState {
     fn open(path: impl AsRef<FilePath>, match_seconds: f64) -> Result<Self, String> {
-        let database_path = path.as_ref().to_path_buf();
-        let connection = Connection::open(&database_path).map_err(|error| error.to_string())?;
+        let connection = Connection::open(path).map_err(|error| error.to_string())?;
         connection
-            .busy_timeout(Duration::from_secs(3))
+            .busy_timeout(Duration::from_secs(15))
             .map_err(|error| error.to_string())?;
         connection
             .execute_batch(
-                "CREATE TABLE IF NOT EXISTS rooms (
+                "PRAGMA journal_mode=DELETE;
+                PRAGMA synchronous=NORMAL;
+                CREATE TABLE IF NOT EXISTS rooms (
                 code TEXT PRIMARY KEY,
                 room_json TEXT NOT NULL,
                 expires_at INTEGER NOT NULL
             );",
             )
             .map_err(|error| error.to_string())?;
-        drop(connection);
-        let state = Self {
-            database_path,
-            rooms: Arc::new(Mutex::new(HashMap::new())),
-            requests: Arc::new(Mutex::new(HashMap::new())),
-            match_seconds,
-        };
-        state.load_rooms()?;
-        Ok(state)
-    }
-
-    fn connection(&self) -> Result<Connection, String> {
-        let connection =
-            Connection::open(&self.database_path).map_err(|error| error.to_string())?;
-        connection
-            .busy_timeout(Duration::from_secs(3))
-            .map_err(|error| error.to_string())?;
-        Ok(connection)
-    }
-
-    fn load_rooms(&self) -> Result<(), String> {
         let now = unix_time();
-        let connection = self.connection()?;
         connection
             .execute("DELETE FROM rooms WHERE expires_at <= ?1", [now])
             .map_err(|error| error.to_string())?;
-        let mut statement = connection
-            .prepare("SELECT code, room_json FROM rooms WHERE expires_at > ?1")
-            .map_err(|error| error.to_string())?;
-        let rows = statement
-            .query_map([now], |row| {
-                Ok((row.get::<_, String>(0)?, row.get::<_, String>(1)?))
-            })
-            .map_err(|error| error.to_string())?;
-        let mut rooms = self
-            .rooms
-            .lock()
-            .map_err(|_| "Room lock failed".to_string())?;
-        for row in rows {
-            let (code, json) = row.map_err(|error| error.to_string())?;
+        let saved_rows = {
+            let mut statement = connection
+                .prepare("SELECT code, room_json FROM rooms WHERE expires_at > ?1")
+                .map_err(|error| error.to_string())?;
+            let rows = statement
+                .query_map([now], |row| {
+                    Ok((row.get::<_, String>(0)?, row.get::<_, String>(1)?))
+                })
+                .map_err(|error| error.to_string())?;
+            rows.collect::<Result<Vec<_>, _>>()
+                .map_err(|error| error.to_string())?
+        };
+        let mut rooms = HashMap::new();
+        for (code, json) in saved_rows {
             let saved: PersistedRoom =
                 serde_json::from_str(&json).map_err(|error| error.to_string())?;
             let (sender, _) = broadcast::channel(64);
@@ -522,7 +501,12 @@ impl AppState {
                 },
             );
         }
-        Ok(())
+        Ok(Self {
+            database: Arc::new(Mutex::new(connection)),
+            rooms: Arc::new(Mutex::new(rooms)),
+            requests: Arc::new(Mutex::new(HashMap::new())),
+            match_seconds,
+        })
     }
 
     fn save_room(&self, room: &Room) -> Result<(), String> {
@@ -534,11 +518,15 @@ impl AppState {
             tick: room.tick,
         };
         let json = serde_json::to_string(&payload).map_err(|error| error.to_string())?;
-        self.connection()?.execute(
-            "INSERT INTO rooms(code, room_json, expires_at) VALUES(?1, ?2, ?3)
-             ON CONFLICT(code) DO UPDATE SET room_json=excluded.room_json, expires_at=excluded.expires_at",
-            params![room.code, json, room.expires_at],
-        ).map_err(|error| error.to_string())?;
+        self.database
+            .lock()
+            .map_err(|_| "Room storage lock failed".to_string())?
+            .execute(
+                "INSERT INTO rooms(code, room_json, expires_at) VALUES(?1, ?2, ?3)
+                 ON CONFLICT(code) DO UPDATE SET room_json=excluded.room_json, expires_at=excluded.expires_at",
+                params![room.code, json, room.expires_at],
+            )
+            .map_err(|error| error.to_string())?;
         Ok(())
     }
 
@@ -599,11 +587,15 @@ fn rate_limited() -> Response {
 }
 
 async fn health(State(state): State<AppState>) -> Response {
-    match state.connection().and_then(|connection| {
-        connection
-            .query_row("SELECT 1", [], |_| Ok(()))
-            .map_err(|error| error.to_string())
-    }) {
+    match state
+        .database
+        .lock()
+        .map_err(|_| "Room storage lock failed".to_string())
+        .and_then(|connection| {
+            connection
+                .query_row("SELECT 1", [], |_| Ok(()))
+                .map_err(|error| error.to_string())
+        }) {
         Ok(()) => (
             StatusCode::OK,
             Json(serde_json::json!({ "status": "ok", "storage": "sqlite" })),
@@ -919,7 +911,7 @@ async fn tick_rooms(state: AppState) {
             let _ = state.save_room(&room);
         }
         if !expired.is_empty() {
-            if let Ok(connection) = state.connection() {
+            if let Ok(connection) = state.database.lock() {
                 for code in expired {
                     let _ = connection.execute("DELETE FROM rooms WHERE code = ?1", [code]);
                 }
@@ -970,8 +962,16 @@ async fn main() {
         .ok()
         .and_then(|value| value.parse().ok())
         .unwrap_or(240.0);
-    let state = AppState::open(FilePath::new(&data_dir).join("codekick.sqlite3"), seconds)
-        .expect("open room database");
+    let database_path = FilePath::new(&data_dir).join("codekick.sqlite3");
+    let state = loop {
+        match AppState::open(&database_path, seconds) {
+            Ok(state) => break state,
+            Err(_) => {
+                eprintln!("Room database is busy during startup; retrying.");
+                time::sleep(Duration::from_secs(2)).await;
+            }
+        }
+    };
     tokio::spawn(tick_rooms(state.clone()));
     let listener = TcpListener::bind(("0.0.0.0", port))
         .await

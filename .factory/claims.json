@@ -22,29 +22,29 @@
   },
   {
     "id": "demo-isolation",
-    "claim": "Demo state stays separate from a real local match.",
+    "claim": "Demo state stays separate from real match data.",
     "where": "Demo banner, Privacy page",
     "test": "npm run test:browser -- --grep @claim:demo-isolation",
     "sandbox": "Fresh browser context; finish and reset a demo; start for real; assert a 0–0 non-demo match."
   },
   {
     "id": "local-demo-data",
-    "claim": "Demo play sends no match data away from this origin.",
-    "where": "Privacy page",
+    "claim": "Demo play sends no match data away from the Codekick site.",
+    "where": "Privacy and limits, Privacy page",
     "test": "npm run test:browser -- --grep @claim:local-demo-data",
-    "sandbox": "Record every request in a fresh demo context during a finished sample match; assert same-origin only."
+    "sandbox": "Record every request in a fresh demo context during a finished sample match; assert same-origin requests only."
   },
   {
     "id": "free-local-match",
     "claim": "A local two-player match starts without sign-in, payment, or a download.",
-    "where": "First-screen facts, match mode",
+    "where": "Home facts, match mode",
     "test": "npm run test:browser -- --grep @claim:free-local-match",
-    "sandbox": "Fresh browser context; select Local two players; assert the four-minute game and player-two controls."
+    "sandbox": "Fresh browser context; select Local two players; assert the game and player-two controls."
   },
   {
     "id": "four-minute-round",
     "claim": "A fresh local match has a four-minute clock.",
-    "where": "First-screen facts, match score strip",
+    "where": "Home, match score strip",
     "test": "npm run test:browser -- --grep @claim:four-minute-round",
     "sandbox": "Fresh browser context; load the game; assert 4:00 then a live countdown after kickoff."
   },
@@ -57,23 +57,135 @@
   },
   {
     "id": "keyboard-controls",
-    "claim": "Keyboard controls move the active captain.",
+    "claim": "Keyboard controls move the active player.",
     "where": "Match controls",
     "test": "npm run test:browser -- --grep @claim:keyboard-controls",
-    "sandbox": "Fresh browser context; wait through kickoff; hold D; assert the accessible captain position changes."
+    "sandbox": "Fresh browser context; hold D; assert the accessible player position changes."
   },
   {
     "id": "touch-controls",
-    "claim": "Touch controls move the active captain on a phone.",
+    "claim": "Touch controls move the active player on a phone.",
     "where": "Match controls",
     "test": "npm run test:browser -- --grep @claim:touch-controls",
-    "sandbox": "Fresh phone context; wait through kickoff; hold Move right; assert the accessible captain position changes."
+    "sandbox": "Fresh phone context; hold the right control; assert the accessible player position changes."
   },
   {
     "id": "phone-frame-rate",
     "claim": "Codekick targets 60 frames per second on a mid-range phone.",
     "where": "How to play",
     "test": "npm run test:browser -- --grep @claim:phone-frame-rate",
-    "sandbox": "Fresh phone browser profile; sample 120 requestAnimationFrame intervals during play; assert at least 55 fps to allow measurement variance."
+    "sandbox": "Fresh phone profile; sample 120 requestAnimationFrame intervals; assert at least 55 fps for measurement variance."
+  },
+  {
+    "id": "sample-duration",
+    "claim": "The sample match starts with 28 seconds.",
+    "where": "Home sample action, Demo page",
+    "test": "npm run test:browser -- --grep @claim:sample-duration",
+    "sandbox": "Fresh demo context; assert the initial 0:28 clock and that it counts down."
+  },
+  {
+    "id": "practice-2v2",
+    "claim": "Practice runs a populated 2v2 match against bots.",
+    "where": "Match mode, README",
+    "test": "npm run test:browser -- --grep @claim:practice-2v2",
+    "sandbox": "Fresh demo context; assert four players and observe a Tide bot position change."
+  },
+  {
+    "id": "ball-actions-combo",
+    "claim": "Possession shows a two-second combo and pass, shot, and goals change play.",
+    "where": "Game, How to play, README",
+    "test": "npm run test:browser -- --grep @claim:ball-actions-combo",
+    "sandbox": "Seeded demo possession; observe combo, pass release, shot, and score change through real controls."
+  },
+  {
+    "id": "second-player-controls",
+    "claim": "A second local player can move, pass, and shoot by keyboard or touch.",
+    "where": "Shared-screen controls, README",
+    "test": "npm run test:browser -- --grep @claim:second-player-controls",
+    "sandbox": "Fresh local demo on desktop and phone; operate player two movement, pass, and shot; assert position, ball, and score outcomes."
+  },
+  {
+    "id": "stadium-rules",
+    "claim": "Crosswind, Spring turf, and Pinched goals rotate across rematches.",
+    "where": "How to play, README",
+    "test": "npm run test:browser -- --grep @claim:stadium-rules",
+    "sandbox": "Fresh demo; play three rematches; assert each rule in order and return to Crosswind."
+  },
+  {
+    "id": "pause-recovery",
+    "claim": "Pause works during kickoff and active local play.",
+    "where": "Game controls, README",
+    "test": "npm run test:browser -- --grep @claim:pause-recovery",
+    "sandbox": "Fresh local match; pause at kickoff and during play; assert the clock freezes and resumes."
+  },
+  {
+    "id": "input-settings",
+    "claim": "Reduced motion and remapped pass and shot keys persist.",
+    "where": "Settings, How to play, README",
+    "test": "npm run test:browser -- --grep @claim:input-settings",
+    "sandbox": "Fresh demo; reduce motion and remap pass; reload; assert settings and use the new key to pass."
+  },
+  {
+    "id": "assist-mode",
+    "claim": "Assist mode slows player movement.",
+    "where": "Settings, README",
+    "test": "npm run test:browser -- --grep @claim:assist-mode",
+    "sandbox": "Fresh local matches; measure the same held movement with assist off and on; assert the assisted distance is lower."
+  },
+  {
+    "id": "fixed-timestep",
+    "claim": "The local match uses deterministic fixed-step simulation.",
+    "where": "README",
+    "test": "npm run test:unit -- --testNamePattern @claim:fixed-timestep",
+    "sandbox": "Run two engines through the same 360 fixed input frames and assert identical serialized outcomes."
+  },
+  {
+    "id": "privacy-all-routes",
+    "claim": "Normal play and public pages load no third-party assets, analytics, or ads.",
+    "where": "Footer, Privacy page, README",
+    "test": "npm run test:browser -- --grep @claim:privacy-all-routes",
+    "sandbox": "Fresh browser; record requests across normal play and public routes; assert all requests remain on the site origin."
+  },
+  {
+    "id": "private-room",
+    "claim": "Two to four friends can join one server-authoritative private match by a six-character room code.",
+    "where": "Home, How to play, README",
+    "test": "npm run test:browser -- --grep @claim:private-room",
+    "sandbox": "Four independent browser contexts create and join one real room; assert unique roles, shared movement, and the four-player boundary."
+  },
+  {
+    "id": "online-end-screen",
+    "claim": "A room match reaches an end screen and starts a synchronized rematch.",
+    "where": "Game, README",
+    "test": "npm run test:browser -- --grep @claim:online-end-screen",
+    "sandbox": "Independent clients run a short test-server match to the end; start a rematch and assert the shared score and next rule."
+  },
+  {
+    "id": "online-four-minute",
+    "claim": "A production room match starts with a four-minute clock.",
+    "where": "Home, README",
+    "test": "npm run test:server -- online_match_uses_a_four_minute_clock",
+    "sandbox": "Construct a production-duration authoritative match and assert 240 seconds and a 0–0 score."
+  },
+  {
+    "id": "room-persistence",
+    "claim": "Room state persists across a service restart and expires after six hours.",
+    "where": "Privacy page, README",
+    "test": "npm run test:server -- claim_room_persistence_survives_restart",
+    "sandbox": "Write a room to a temporary SQLite database, reopen the service state, and assert room, player slot, tick, and expiry."
+  },
+  {
+    "id": "room-rate-limit",
+    "claim": "Excess room creation returns HTTP 429 with Retry-After.",
+    "where": "README operations",
+    "test": "npm run test:server -- rate_limit_returns_429_with_retry_after",
+    "sandbox": "Issue the allowed room requests from one address, then assert HTTP 429 and Retry-After: 60."
+  },
+  {
+    "id": "room-health",
+    "claim": "The room service health check verifies SQLite access.",
+    "where": "README operations",
+    "test": "npm run test:server -- health_checks_sqlite",
+    "sandbox": "Open a temporary SQLite database and assert the health handler returns HTTP 200."
   }
 ]

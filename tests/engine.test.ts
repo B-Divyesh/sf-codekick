@@ -29,4 +29,15 @@ describe('Codekick match engine', () => {
     expect(match.timeLeft).toBe(before);
     expect(match.phase).toBe('paused');
   });
+
+  it('@claim:fixed-timestep produces the same state for the same input frames', () => {
+    const first = new GameEngine('local', 'Spring turf');
+    const second = new GameEngine('local', 'Spring turf');
+    for (let tick = 0; tick < 360; tick += 1) {
+      const input = { right: tick > 70 && tick < 180, down: tick > 120 && tick < 210, p2left: tick > 90 };
+      first.advance(1 / 60, input);
+      second.advance(1 / 60, input);
+    }
+    expect(first.serialize()).toEqual(second.serialize());
+  });
 });

@@ -2,7 +2,7 @@ export const FIELD = { width: 960, height: 540, goalDepth: 35, goalHeight: 180 }
 
 export type Team = 'sun' | 'tide';
 export type Rule = 'Crosswind' | 'Spring turf' | 'Pinched goals';
-export type Phase = 'kickoff' | 'playing' | 'goal' | 'ended' | 'paused';
+export type Phase = 'waiting' | 'kickoff' | 'playing' | 'goal' | 'ended' | 'paused';
 export type MatchMode = 'practice' | 'local';
 
 export interface Player {
@@ -50,6 +50,7 @@ export interface SerializedMatch {
   comboUntil: number;
   selectedA: string;
   selectedB: string;
+  pausedFrom?: Exclude<Phase, 'paused'>;
 }
 
 const PLAYER_RADIUS = 22;
@@ -73,6 +74,7 @@ export class GameEngine {
   comboUntil = 0;
   selectedA = 'sun-1';
   selectedB = 'tide-1';
+  pausedFrom: Exclude<Phase, 'paused'> = 'playing';
   assistMode = false;
 
   constructor(mode: MatchMode = 'practice', rule: Rule = 'Crosswind') {
@@ -105,7 +107,7 @@ export class GameEngine {
 
   advance(dt: number, input: InputFrame = {}): void {
     const safeDt = clamp(dt, 0, 1 / 12);
-    if (this.phase === 'paused' || this.phase === 'ended') return;
+    if (this.phase === 'waiting' || this.phase === 'paused' || this.phase === 'ended') return;
 
     if (this.phase === 'kickoff' || this.phase === 'goal') {
       this.phaseTimer -= safeDt;
@@ -253,8 +255,13 @@ export class GameEngine {
     this.phaseTimer = 1.2;
   }
 
-  pause(): void { if (this.phase === 'playing') this.phase = 'paused'; }
-  resume(): void { if (this.phase === 'paused') this.phase = 'playing'; }
+  pause(): void {
+    if (this.phase === 'kickoff' || this.phase === 'playing' || this.phase === 'goal') {
+      this.pausedFrom = this.phase;
+      this.phase = 'paused';
+    }
+  }
+  resume(): void { if (this.phase === 'paused') this.phase = this.pausedFrom; }
   finish(): void { this.timeLeft = 0; this.phase = 'ended'; }
 
   reset(nextRule?: Rule): void {
@@ -269,13 +276,15 @@ export class GameEngine {
     this.comboUntil = 0;
     this.selectedA = 'sun-1';
     this.selectedB = 'tide-1';
+    this.pausedFrom = 'playing';
   }
 
   serialize(): SerializedMatch {
     return JSON.parse(JSON.stringify({
       players: this.players, ball: this.ball, score: this.score, timeLeft: this.timeLeft,
       phase: this.phase, phaseTimer: this.phaseTimer, rule: this.rule, mode: this.mode,
-      comboUntil: this.comboUntil, selectedA: this.selectedA, selectedB: this.selectedB
+      comboUntil: this.comboUntil, selectedA: this.selectedA, selectedB: this.selectedB,
+      pausedFrom: this.pausedFrom
     })) as SerializedMatch;
   }
 
@@ -284,12 +293,13 @@ export class GameEngine {
     this.ball = state.ball;
     this.score = state.score;
     this.timeLeft = state.timeLeft;
-    this.phase = state.phase === 'paused' ? 'playing' : state.phase;
+    this.phase = state.phase;
     this.phaseTimer = state.phaseTimer;
     this.rule = state.rule;
     this.comboUntil = state.comboUntil;
     this.selectedA = state.selectedA;
     this.selectedB = state.selectedB;
+    this.pausedFrom = state.pausedFrom ?? 'playing';
   }
 }
 

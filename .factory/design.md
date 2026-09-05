@@ -7,6 +7,11 @@ scoreboard bands, and rounded player discs. It fits a short shared-screen sport
 because every moving part stays readable from a couch or a phone. It avoids a
 simulation broadcast look and generic app cards.
 
+The room panel uses the same scoreboard geometry and sits directly beside the
+live field on desktop. On phones, the field moves before the room panel so the
+game remains visible in the first screen. Room status uses text as well as team
+color, and each phone player receives a separate labeled control set.
+
 ## Palette and type
 
 | Token | Value | Use |
@@ -30,10 +35,11 @@ rhythm, with a dense field panel and more open explanatory sections.
 The field is the first large object on the page. Score and game rule sit above
 it; controls sit below it. The selected captain receives a ring, the ball owner
 gets a two-second combo callout, and the end card appears over the field.
-Canvas play advances with a clamped 60 Hz fixed timestep and requestAnimationFrame
-rendering. Crosswind lines move slowly only when motion is allowed. The system
-reduced-motion preference and the in-game setting remove that movement. There
-are no flashes, loops, audio, or screen shake.
+Local canvas play advances with a clamped 60 Hz fixed timestep. Room play uses
+server-authoritative 60 Hz ticks, 20 Hz snapshots, and short visual
+interpolation. Crosswind lines move slowly only when motion is allowed. The
+system reduced-motion preference and the in-game setting remove that movement.
+There are no flashes, loops, audio, or screen shake.
 
 ## Original asset plan and provenance
 

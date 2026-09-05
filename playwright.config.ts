@@ -16,10 +16,18 @@ export default defineConfig({
     { name: 'chromium', use: { ...devices['Desktop Chrome'] } },
     { name: 'phone', use: { ...devices['Pixel 5'] } }
   ],
-  webServer: {
-    command: 'npm run dev -- --host 127.0.0.1 --port 4173',
-    url: 'http://127.0.0.1:4173',
-    reuseExistingServer: true,
-    timeout: 30_000
-  }
+  webServer: [
+    {
+      command: 'DATA_DIR=/tmp/codekick-playwright MATCH_SECONDS=12 PORT=8787 cargo run --manifest-path realtime/Cargo.toml',
+      url: 'http://127.0.0.1:8787/health',
+      reuseExistingServer: false,
+      timeout: 120_000
+    },
+    {
+      command: 'npm run dev -- --host 127.0.0.1 --port 4173',
+      url: 'http://127.0.0.1:4173',
+      reuseExistingServer: true,
+      timeout: 30_000
+    }
+  ]
 });

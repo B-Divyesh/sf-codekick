@@ -73,3 +73,22 @@ host in this worker. The static deployment must be triggered by the factory
 deployment path after the final push, then checked cold on HTTPS before public
 release. That DNS/deployment condition is separate from the locally verified
 implementation.
+
+## Independent verification 1 — 2026-09-05
+
+Verdict: **FAIL** with 9 findings and 8 untested public claims. See
+`.factory/verification-1.md` for evidence and severity.
+
+The live host now resolves and serves the reviewed implementation. Its
+`index.html` matches the clean candidate build. Fresh desktop and phone runs
+completed the demo, reset, storage-isolation, real-match entry, keyboard,
+touch, route, legal, focus, reduced-motion, recovery, and timed end-screen
+paths. All 11 declared claim commands, the full test suite, build, URL verifier,
+and live Lighthouse run passed. Lighthouse scored 100 in all four measured
+categories, and the live phone profile measured 60.00 fps.
+
+Acceptance remains blocked by the missing room-code multiplayer job. Other
+findings cover the unusable second-player phone controls, incomplete claim
+inventory, 200% text reflow, 34 px demo controls, missing live CSP and
+Permissions-Policy headers, kickoff Pause no-op, soft-404 status, and the
+missing actionable privacy contact.

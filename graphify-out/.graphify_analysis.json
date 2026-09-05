@@ -1,0 +1,261 @@
+{
+  "communities": {
+    "0": [
+      "src_engine",
+      "src_engine_ball",
+      "src_engine_field",
+      "src_engine_formatclock",
+      "src_engine_inputframe",
+      "src_engine_matchmode",
+      "src_engine_phase",
+      "src_engine_player",
+      "src_engine_rule",
+      "src_engine_rules",
+      "src_engine_serializedmatch",
+      "src_engine_team",
+      "src_main",
+      "src_main_appelement",
+      "src_main_default_settings",
+      "src_main_getroute",
+      "src_main_homepage",
+      "src_main_howpage",
+      "src_main_navigate",
+      "src_main_notfoundpage",
+      "src_main_pageshell",
+      "src_main_privacypage",
+      "src_main_renderroute",
+      "src_main_routeinfo",
+      "src_main_settings",
+      "src_main_termspage",
+      "src_main_writemeta",
+      "tests_engine_test"
+    ],
+    "1": [
+      "src_engine_clamp",
+      "src_engine_gameengine",
+      "src_engine_gameengine_advance",
+      "src_engine_gameengine_checkgoal",
+      "src_engine_gameengine_comboremaining",
+      "src_engine_gameengine_constructor",
+      "src_engine_gameengine_find",
+      "src_engine_gameengine_finish",
+      "src_engine_gameengine_goalhalfheight",
+      "src_engine_gameengine_isactive",
+      "src_engine_gameengine_kick",
+      "src_engine_gameengine_makeplayers",
+      "src_engine_gameengine_moveai",
+      "src_engine_gameengine_moveball",
+      "src_engine_gameengine_movehuman",
+      "src_engine_gameengine_movesupporters",
+      "src_engine_gameengine_reset",
+      "src_engine_gameengine_resetaftergoal",
+      "src_engine_gameengine_restore",
+      "src_engine_gameengine_resume",
+      "src_engine_gameengine_serialize",
+      "src_engine_gameengine_trypickup",
+      "src_engine_length",
+      "src_main_gameview_loadengine"
+    ],
+    "2": [
+      "ref_dom",
+      "ref_dom_iterable",
+      "ref_esnext",
+      "ref_node",
+      "ref_playwright_config_ts",
+      "ref_src",
+      "ref_tests",
+      "ref_vite_config_ts",
+      "ref_vitest_config_ts",
+      "ref_vitest_globals",
+      "tsconfig",
+      "tsconfig_compileroptions",
+      "tsconfig_compileroptions_lib",
+      "tsconfig_compileroptions_module",
+      "tsconfig_compileroptions_moduleresolution",
+      "tsconfig_compileroptions_noemit",
+      "tsconfig_compileroptions_strict",
+      "tsconfig_compileroptions_target",
+      "tsconfig_compileroptions_types",
+      "tsconfig_compileroptions_usedefineforclassfields",
+      "tsconfig_include"
+    ],
+    "3": [
+      "src_engine_gameengine_pause",
+      "src_main_gameview",
+      "src_main_gameview_attachevents",
+      "src_main_gameview_cleanuplisteners",
+      "src_main_gameview_constructor",
+      "src_main_gameview_destroy",
+      "src_main_gameview_draw",
+      "src_main_gameview_drawball",
+      "src_main_gameview_drawgoal",
+      "src_main_gameview_drawpitch",
+      "src_main_gameview_drawplayer",
+      "src_main_gameview_loadsettings",
+      "src_main_gameview_loop",
+      "src_main_gameview_nextrule",
+      "src_main_gameview_rebindstatus",
+      "src_main_gameview_render",
+      "src_main_gameview_resetdemo",
+      "src_main_gameview_saveengine",
+      "src_main_gameview_savesettings",
+      "src_main_gameview_togglepause",
+      "src_main_gameview_updateui"
+    ],
+    "4": [
+      "axe_core_playwright",
+      "package_devdependencies",
+      "package_devdependencies_axe_core_playwright",
+      "package_devdependencies_playwright_test",
+      "package_devdependencies_types_node",
+      "package_devdependencies_typescript",
+      "package_devdependencies_vite",
+      "package_devdependencies_vitest",
+      "playwright_test",
+      "types_node",
+      "typescript",
+      "vite",
+      "vitest"
+    ],
+    "5": [
+      "package",
+      "package_name",
+      "package_private",
+      "package_scripts",
+      "package_scripts_build",
+      "package_scripts_dev",
+      "package_scripts_preview",
+      "package_scripts_test",
+      "package_scripts_test_browser",
+      "package_scripts_test_unit",
+      "package_scripts_verify_url",
+      "package_type",
+      "package_version"
+    ],
+    "6": [
+      "scripts_verify_url_consoleerrors",
+      "scripts_verify_url_mjs_scripts_verify_url"
+    ],
+    "7": [
+      "scripts_verify_url_sh__entry",
+      "scripts_verify_url_sh_scripts_verify_url"
+    ],
+    "8": [
+      "playwright_config"
+    ],
+    "9": [
+      "tests_game_spec"
+    ],
+    "10": [
+      "vite_config"
+    ],
+    "11": [
+      "vitest_config"
+    ]
+  },
+  "cohesion": {
+    "0": 0.12433862433862433,
+    "1": 0.17028985507246377,
+    "2": 0.09523809523809523,
+    "3": 0.21428571428571427,
+    "4": 0.15384615384615385,
+    "5": 0.15384615384615385,
+    "6": 1.0,
+    "7": 1.0,
+    "8": 1.0,
+    "9": 1.0,
+    "10": 1.0,
+    "11": 1.0
+  },
+  "gods": [
+    {
+      "id": "src_engine_gameengine",
+      "label": "GameEngine",
+      "degree": 26
+    },
+    {
+      "id": "src_main_gameview",
+      "label": "GameView",
+      "degree": 24
+    },
+    {
+      "id": "src_main_renderroute",
+      "label": "renderRoute()",
+      "degree": 10
+    },
+    {
+      "id": "tsconfig_compileroptions",
+      "label": "compilerOptions",
+      "degree": 9
+    },
+    {
+      "id": "package_scripts",
+      "label": "scripts",
+      "degree": 8
+    },
+    {
+      "id": "src_engine_clamp",
+      "label": "clamp()",
+      "degree": 6
+    },
+    {
+      "id": "src_main_pageshell",
+      "label": "pageShell()",
+      "degree": 6
+    },
+    {
+      "id": "tsconfig_include",
+      "label": "include",
+      "degree": 6
+    },
+    {
+      "id": "src_engine_length",
+      "label": "length()",
+      "degree": 5
+    },
+    {
+      "id": "tsconfig_compileroptions_lib",
+      "label": "lib",
+      "degree": 4
+    }
+  ],
+  "surprises": [
+    {
+      "source": "GameView",
+      "target": "Phase",
+      "source_files": [
+        "src/main.ts",
+        "src/engine.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "bridges separate communities"
+    },
+    {
+      "source": "GameView",
+      "target": "InputFrame",
+      "source_files": [
+        "src/main.ts",
+        "src/engine.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "bridges separate communities"
+    },
+    {
+      "source": "GameView",
+      "target": "GameEngine",
+      "source_files": [
+        "src/main.ts",
+        "src/engine.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "bridges separate communities"
+    }
+  ],
+  "tokens": {
+    "input": 0,
+    "output": 0
+  }
+}

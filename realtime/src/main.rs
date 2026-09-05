@@ -464,6 +464,7 @@ impl AppState {
             );",
             )
             .map_err(|error| error.to_string())?;
+        drop(connection);
         let state = Self {
             database_path,
             rooms: Arc::new(Mutex::new(HashMap::new())),

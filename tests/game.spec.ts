@@ -74,6 +74,23 @@ test('@claim:free-local-match A local two-player match starts without sign-in or
   await expect(page.getByText('Local player two:', { exact: false })).toBeVisible();
 });
 
+test('@claim:four-minute-round A fresh local match begins with a four-minute clock', async ({ page }) => {
+  await page.goto('/');
+  await expect(page.locator('.score-strip')).toContainText('4:00');
+  await page.waitForTimeout(1400);
+  await expect(page.locator('.score-strip')).toContainText(/3:5[0-9]/);
+});
+
+test('@claim:match-recovery An unfinished local match returns after a reload', async ({ page }) => {
+  await page.goto('/');
+  await page.getByLabel('Match mode').selectOption('local');
+  await page.waitForTimeout(2500);
+  const savedClock = await page.locator('[data-clock]').textContent();
+  await page.reload();
+  await expect(page.getByLabel('Match mode')).toHaveValue('local');
+  await expect(page.locator('[data-clock]')).toHaveText(savedClock!);
+});
+
 test('@claim:keyboard-controls Keyboard movement changes the active captain position', async ({ page }) => {
   await page.goto('/');
   const description = page.locator('[data-match-description]');
@@ -120,6 +137,22 @@ test('@claim:phone-frame-rate The phone profile sustains the 60 fps rendering ta
   await testInfo.attach('phone-frame-rate.json', { body: JSON.stringify(measurement), contentType: 'application/json' });
   expect(measurement.frames).toBe(120);
   expect(measurement.fps).toBeGreaterThanOrEqual(55);
+});
+
+test('both advertised match modes and all stadium rules can be selected in play', async ({ page }) => {
+  await page.goto('/demo');
+  await expect(page.getByLabel('Match mode')).toHaveValue('practice');
+  await page.getByLabel('Match mode').selectOption('local');
+  await expect(page.getByLabel('Match mode')).toHaveValue('local');
+  await page.getByRole('button', { name: 'Finish the sample match' }).click();
+  await page.getByRole('button', { name: 'Play another match' }).click();
+  await expect(page.locator('[data-rule]')).toHaveText('Rule: Spring turf');
+  await page.getByRole('button', { name: 'Finish the sample match' }).click();
+  await page.getByRole('button', { name: 'Play another match' }).click();
+  await expect(page.locator('[data-rule]')).toHaveText('Rule: Pinched goals');
+  await page.getByRole('button', { name: 'Finish the sample match' }).click();
+  await page.getByRole('button', { name: 'Play another match' }).click();
+  await expect(page.locator('[data-rule]')).toHaveText('Rule: Crosswind');
 });
 
 test('routes set a route title, return control to the page heading, and include a styled 404', async ({ page }) => {

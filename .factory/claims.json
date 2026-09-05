@@ -36,10 +36,24 @@
   },
   {
     "id": "free-local-match",
-    "claim": "A local two-player match starts without sign-in or payment.",
+    "claim": "A local two-player match starts without sign-in, payment, or a download.",
     "where": "First-screen facts, match mode",
     "test": "npm run test:browser -- --grep @claim:free-local-match",
     "sandbox": "Fresh browser context; select Local two players; assert the four-minute game and player-two controls."
+  },
+  {
+    "id": "four-minute-round",
+    "claim": "A fresh local match has a four-minute clock.",
+    "where": "First-screen facts, match score strip",
+    "test": "npm run test:browser -- --grep @claim:four-minute-round",
+    "sandbox": "Fresh browser context; load the game; assert 4:00 then a live countdown after kickoff."
+  },
+  {
+    "id": "match-recovery",
+    "claim": "An unfinished local match returns after a reload.",
+    "where": "Privacy page, README",
+    "test": "npm run test:browser -- --grep @claim:match-recovery",
+    "sandbox": "Fresh browser context; start Local two players; allow state to save; reload; assert mode and clock return."
   },
   {
     "id": "keyboard-controls",

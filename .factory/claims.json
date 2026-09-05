@@ -1,0 +1,65 @@
+[
+  {
+    "id": "demo-end-screen",
+    "claim": "A sample match reaches its end screen.",
+    "where": "Demo match",
+    "test": "npm run test:browser -- --grep @claim:demo-end-screen",
+    "sandbox": "Fresh browser context; open /demo; finish the sample match; assert the final score screen."
+  },
+  {
+    "id": "restart-reset",
+    "claim": "A rematch resets the score and uses the next stadium rule.",
+    "where": "Match end screen",
+    "test": "npm run test:browser -- --grep @claim:restart-reset",
+    "sandbox": "Fresh demo context; end a match; choose Play another match; assert a 0–0 score and the next rule."
+  },
+  {
+    "id": "settings-persist",
+    "claim": "Game settings stay in this browser.",
+    "where": "Settings dialog, Privacy page",
+    "test": "npm run test:browser -- --grep @claim:settings-persist",
+    "sandbox": "Fresh browser context; choose assist mode; reload; assert the checked setting."
+  },
+  {
+    "id": "demo-isolation",
+    "claim": "Demo state stays separate from a real local match.",
+    "where": "Demo banner, Privacy page",
+    "test": "npm run test:browser -- --grep @claim:demo-isolation",
+    "sandbox": "Fresh browser context; finish and reset a demo; start for real; assert a 0–0 non-demo match."
+  },
+  {
+    "id": "local-demo-data",
+    "claim": "Demo play sends no match data away from this origin.",
+    "where": "Privacy page",
+    "test": "npm run test:browser -- --grep @claim:local-demo-data",
+    "sandbox": "Record every request in a fresh demo context during a finished sample match; assert same-origin only."
+  },
+  {
+    "id": "free-local-match",
+    "claim": "A local two-player match starts without sign-in or payment.",
+    "where": "First-screen facts, match mode",
+    "test": "npm run test:browser -- --grep @claim:free-local-match",
+    "sandbox": "Fresh browser context; select Local two players; assert the four-minute game and player-two controls."
+  },
+  {
+    "id": "keyboard-controls",
+    "claim": "Keyboard controls move the active captain.",
+    "where": "Match controls",
+    "test": "npm run test:browser -- --grep @claim:keyboard-controls",
+    "sandbox": "Fresh browser context; wait through kickoff; hold D; assert the accessible captain position changes."
+  },
+  {
+    "id": "touch-controls",
+    "claim": "Touch controls move the active captain on a phone.",
+    "where": "Match controls",
+    "test": "npm run test:browser -- --grep @claim:touch-controls",
+    "sandbox": "Fresh phone context; wait through kickoff; hold Move right; assert the accessible captain position changes."
+  },
+  {
+    "id": "phone-frame-rate",
+    "claim": "Codekick targets 60 frames per second on a mid-range phone.",
+    "where": "How to play",
+    "test": "npm run test:browser -- --grep @claim:phone-frame-rate",
+    "sandbox": "Fresh phone browser profile; sample 120 requestAnimationFrame intervals during play; assert at least 55 fps to allow measurement variance."
+  }
+]

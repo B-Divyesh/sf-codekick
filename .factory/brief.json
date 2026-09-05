@@ -1,0 +1,32 @@
+{
+  "slug": "codekick",
+  "title": "Codekick",
+  "territory": "games-creative",
+  "user": "Two to four friends who want an immediate browser football match through a room code, on laptop keyboard or touch, without downloads or an account.",
+  "evidence": [
+    {
+      "url": "https://hn.algolia.com/api/v1/items/48543606",
+      "date": "2026-06-15",
+      "quote_or_summary": "The Show HN launch explicitly offers multiplayer browser football with server-authoritative physics; a commenter says they plan to play it after work, evidence of ready-to-try demand."
+    },
+    {
+      "url": "https://0-0.io/",
+      "date": "2026-09-01",
+      "quote_or_summary": "The fetched official page describes 0-0.io as real-time browser football with no download and no signup."
+    }
+  ],
+  "recurrence": "The recent launch and immediate player response validate drop-in browser football; this is a competitive format where queues, control complexity, and long matches remain the likely friction.",
+  "current_workaround": "Download a large football game, join a public .io queue, or abandon play when both friends cannot matchmake together.",
+  "incumbents_and_gap": "0-0.io and other .io sports games validate instant browser sports, but public queues and physics-heavy controls are not ideal for two friends arriving from a shared link. A deliberately small code-room duel is underserved.",
+  "smallest_useful_product": "A 2v2, four-minute arcade football match: host shares a room code, each player has move/pass/shot, and possession grants a visible two-second combo window. Each match differs through one symmetric stadium rule (wind, bounce, goal shape). Non-goals: leagues, player packs, realistic simulation, public matchmaking, or licensed teams.",
+  "success_measure": "75% of created rooms get two players connected in under a minute, and at least half of finished matches include a rematch.",
+  "artifact_class": "browser-game",
+  "monetization": "free \u2014 the first requirement is a sendable two-friend game; cosmetic stadiums can be a one-time purchase later.",
+  "constraints": "Server-authoritative state with interpolation; compensate for latency but do not promise esports fairness; generic teams and original art only; support keyboard and touch.",
+  "est_build_effort": "M",
+  "scale": "small",
+  "why_distinct": "It is a short private-room social sport, not an attempt to clone FIFA or build an .io matchmaking economy.",
+  "confidence": 3,
+  "state": "RESEARCHED",
+  "research_run": "research-browser-games-0901-204337-3"
+}

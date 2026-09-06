@@ -19,7 +19,7 @@ use axum::{
 };
 use futures_util::{SinkExt, StreamExt};
 use rand::{Rng, distributions::Alphanumeric};
-use rusqlite::{Connection, params};
+use rusqlite::{Connection, OpenFlags, params};
 use serde::{Deserialize, Serialize};
 use tokio::{net::TcpListener, sync::broadcast, time};
 use tower_http::{cors::CorsLayer, set_header::SetResponseHeaderLayer};
@@ -450,7 +450,14 @@ fn starting_players() -> Vec<Player> {
 
 impl AppState {
     fn open(path: impl AsRef<FilePath>, match_seconds: f64) -> Result<Self, String> {
-        let connection = Connection::open(path).map_err(|error| error.to_string())?;
+        let database_uri = format!("file:{}?vfs=unix-dotfile", path.as_ref().display());
+        let connection = Connection::open_with_flags(
+            database_uri,
+            OpenFlags::SQLITE_OPEN_READ_WRITE
+                | OpenFlags::SQLITE_OPEN_CREATE
+                | OpenFlags::SQLITE_OPEN_URI,
+        )
+        .map_err(|error| error.to_string())?;
         connection
             .busy_timeout(Duration::from_secs(15))
             .map_err(|error| error.to_string())?;
@@ -966,8 +973,8 @@ async fn main() {
     let state = loop {
         match AppState::open(&database_path, seconds) {
             Ok(state) => break state,
-            Err(_) => {
-                eprintln!("Room database is busy during startup; retrying.");
+            Err(error) => {
+                eprintln!("Room storage is unavailable during startup ({error}); retrying.");
                 time::sleep(Duration::from_secs(2)).await;
             }
         }

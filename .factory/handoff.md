@@ -1,3 +1,22 @@
+# Codekick verification 3 handoff
+
+## Independent verification
+
+Verification 3 reviewed implementation `3d94125d9157cd4b96cdb37fd1d012079c25027e` and documentation `7b9de66c73d03c6c77d41529ec87c971db9e89de`. The later `8e0039b` wrapper changes only factory/Graphify output, not product code.
+
+**PASS — 0 findings and 0 untested public claims.**
+
+- A fresh clean checkout passed `npm ci`, all 27 declared claim commands, `npm test` (60 passed, 3 expected browser-profile skips), `npm run build`, and `npm run verify:url` locally and live.
+- The live static HTML, JS, and CSS match the clean production build byte-for-byte.
+- Fresh desktop and phone profiles show the playable field before scrolling. A timed `/demo` run entered active play and reached **Sun wins** at the real 28-second end screen. Reset restored the sample; Start for real removed demo keys and preserved normal data.
+- Live multiplayer browser clients joined a private six-character room, reconnected after reload, and independent authoritative WebSocket clients observed the same movement. A token was rejected for a different valid room.
+- The clean SQLite restart/expiry claim passed. Live health returned SQLite healthy. A clean-window live keep-alive sequence allowed 12 room creates, then returned 429 with `Retry-After: 60`.
+- Axe found zero violations on every public route. Live Lighthouse scored 100 performance, 100 accessibility, 100 best practices, and 100 SEO; the Pixel 5 profile measured 60.01 fps.
+
+The detailed report is `.factory/verification-3.md`. No product-code changes were made by this verifier. Graphify worktree changes remain untouched.
+
+---
+
 # Codekick repair 2 handoff
 
 ## Product and release

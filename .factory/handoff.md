@@ -1,3 +1,37 @@
+# Codekick review 1 handoff
+
+## Strict review result
+
+Review 1 checked implementation
+`3d94125d9157cd4b96cdb37fd1d012079c25027e`, documentation baseline
+`7e0bb9273fe66c8c092ee9c6261c8ab2d5a0ee57`, and the byte-identical live
+release.
+
+**FAIL — 1 medium finding and 0 untested public claims.**
+
+- The remaining finding is that several phone links do not meet the required
+  44 × 44 px touch target: the header wordmark, footer Privacy and Terms links,
+  and the privacy request email link.
+- All 27 declared claim commands passed separately from a clean clone. The
+  full suite passed 4 engine, 5 Rust, and 51 browser checks with 3 expected
+  profile skips. The clean build and both URL verifier runs passed.
+- A fresh timed sample reached **Sun wins** without its finish shortcut. Reset
+  and Start for real proved demo cleanup and normal-data isolation.
+- Fresh live independent clients proved 4-player room play, shared movement,
+  reconnect, capacity, and cross-room isolation. A pre-restart room survived
+  restart of only the active Codekick realtime revision. Health and the clean
+  12-request allowance followed by 429 with `Retry-After: 60` passed.
+- Axe found zero violations on every public route. The manual touch-target
+  measurement is the one remaining accessibility failure.
+- Live Lighthouse scored 100 in all four categories. The phone game measured
+  60.003 fps.
+
+The detailed report is `.factory/review-1.md`. Evidence is under
+`/work/.evidence/codekick-review-1/`. No product code was changed. The existing
+Graphify worktree changes remain untouched and excluded from the report commit.
+
+---
+
 # Codekick verification 3 handoff
 
 ## Independent verification

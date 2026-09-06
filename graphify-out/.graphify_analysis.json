@@ -323,20 +323,20 @@
       "degree": 12
     },
     {
-      "id": "realtime_src_main_unix_time",
-      "label": "unix_time()",
+      "id": "src_main_renderroute",
+      "label": "renderRoute()",
       "degree": 10
     },
     {
-      "id": "src_main_renderroute",
-      "label": "renderRoute()",
+      "id": "realtime_src_main_unix_time",
+      "label": "unix_time()",
       "degree": 10
     }
   ],
   "surprises": [
     {
       "source": "GameView",
-      "target": "Phase",
+      "target": "GameEngine",
       "source_files": [
         "src/main.ts",
         "src/engine.ts"
@@ -358,7 +358,7 @@
     },
     {
       "source": "GameView",
-      "target": "SerializedMatch",
+      "target": "Phase",
       "source_files": [
         "src/main.ts",
         "src/engine.ts"
@@ -369,7 +369,7 @@
     },
     {
       "source": "GameView",
-      "target": "GameEngine",
+      "target": "SerializedMatch",
       "source_files": [
         "src/main.ts",
         "src/engine.ts"

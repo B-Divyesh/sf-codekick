@@ -7,6 +7,9 @@ four friends. A host shares a six-character room code; friends play on their
 own keyboard or phone browser without an account or download.
 
 - Implementation SHA: `480267d` (`Fix phone link touch targets`).
+- Documentation baseline SHA: `c6826d6` (`Document touch target repair
+  verification`). This metadata update is report-only and changes no product
+  artifact.
 - Static release: `sf-codekick` was deployed from that commit to
   <https://codekick.sociobot.in> on 2026-09-06 UTC.
 - Realtime service: unchanged. It remains the single-replica,
@@ -51,6 +54,8 @@ In detached clean worktree `/tmp/codekick-repair-3-clean` at `480267d`:
   verifier passed title, language, one H1, main landmark, image-alt, and
   console checks. The live response includes CSP with `frame-ancestors 'none'`,
   Permissions Policy, nosniff, Referrer Policy, and HSTS.
+- The live HTML, JavaScript, and CSS are byte-identical to the `480267d`
+  production build.
 - Fresh 1440 by 900 desktop and 393 by 727 Pixel 5 contexts both showed the
   field before scrolling. They state the job (**Play a private 2v2 football
   match**), audience (two to four friends without accounts or downloads), and
@@ -87,11 +92,8 @@ In detached clean worktree `/tmp/codekick-repair-3-clean` at `480267d`:
   its removal from memory and SQLite, rejected a join, and proved absence after
   another restart. The realtime implementation is unchanged from the latest
   live restart verification recorded in `.factory/review-1.md`.
-- A live keep-alive request sequence returned HTTP 429 with `Retry-After: 60`.
-  This session had already created rooms for the live multiplayer checks, so
-  the clean twelve-request allowance is evidenced by the independent prior
-  review and the exact clean Rust claim rather than misreported as a fresh
-  allowance measurement here.
+- A fresh live keep-alive request sequence returned twelve HTTP 201 room
+  creates, then HTTP 429 with `Retry-After: 60` on request 13.
 
 Evidence created during this repair is in `/work/.evidence/codekick-repair-3/`.
 The catalog description is copied to `/work/.evidence/catalog-description.txt`.

@@ -36,8 +36,7 @@
       "src_main_gameview_setroombusy",
       "src_main_gameview_setroomstatus",
       "src_main_gameview_togglepause",
-      "src_main_gameview_updateui",
-      "src_main_issavedmatch"
+      "src_main_gameview_updateui"
     ],
     "1": [
       "src_engine",
@@ -58,6 +57,7 @@
       "src_main_getroute",
       "src_main_homepage",
       "src_main_howpage",
+      "src_main_issavedmatch",
       "src_main_navigate",
       "src_main_notfoundpage",
       "src_main_pageshell",
@@ -148,9 +148,48 @@
       "tsconfig_include"
     ],
     "5": [
-      "ball",
+      "asref",
+      "filepath",
+      "realtime_src_main",
+      "realtime_src_main_active_match_continues_while_storage_is_busy",
+      "realtime_src_main_apply_client_message",
+      "realtime_src_main_appstate_open",
+      "realtime_src_main_clientmessage",
+      "realtime_src_main_handle_socket",
+      "realtime_src_main_main",
+      "realtime_src_main_matchstate_new",
+      "realtime_src_main_matchstate_reset",
+      "realtime_src_main_online_match_uses_a_four_minute_clock",
+      "realtime_src_main_player",
+      "realtime_src_main_router",
+      "realtime_src_main_snapshot_json",
+      "realtime_src_main_starting_players",
+      "realtime_src_main_tick_rooms",
+      "realtime_src_main_unix_time",
+      "self",
+      "websocket"
+    ],
+    "6": [
+      "connectinfo",
+      "path",
+      "realtime_src_main_appstate_save_room",
+      "realtime_src_main_claim_room_persistence_survives_restart",
+      "realtime_src_main_create_room",
+      "realtime_src_main_health",
+      "realtime_src_main_health_checks_sqlite",
+      "realtime_src_main_join_room",
+      "realtime_src_main_json_error",
+      "realtime_src_main_rate_limit_returns_429_with_retry_after",
+      "realtime_src_main_rate_limited",
+      "realtime_src_main_test_state",
+      "response",
+      "socketaddr",
+      "state",
+      "statuscode",
+      "tempdir"
+    ],
+    "7": [
       "hashmap",
-      "player",
       "realtime_src_main_matchstate",
       "realtime_src_main_matchstate_advance",
       "realtime_src_main_matchstate_check_goal",
@@ -168,70 +207,29 @@
       "sender",
       "vec"
     ],
-    "6": [
+    "8": [
       "arc",
-      "asref",
       "atomicbool",
       "connection",
-      "filepath",
       "instant",
       "ipaddr",
       "mutex",
       "realtime_src_main_appstate",
       "realtime_src_main_appstate_allowed",
-      "realtime_src_main_appstate_open",
       "realtime_src_main_appstate_persist_tick",
-      "realtime_src_main_appstate_save_room",
       "result",
-      "self",
       "vecdeque"
-    ],
-    "7": [
-      "realtime_src_main",
-      "realtime_src_main_active_match_continues_while_storage_is_busy",
-      "realtime_src_main_apply_client_message",
-      "realtime_src_main_claim_room_persistence_survives_restart",
-      "realtime_src_main_clientmessage",
-      "realtime_src_main_main",
-      "realtime_src_main_matchstate_new",
-      "realtime_src_main_matchstate_reset",
-      "realtime_src_main_online_match_uses_a_four_minute_clock",
-      "realtime_src_main_player",
-      "realtime_src_main_router",
-      "realtime_src_main_starting_players",
-      "realtime_src_main_test_state",
-      "realtime_src_main_tick_rooms",
-      "realtime_src_main_unix_time",
-      "tempdir"
-    ],
-    "8": [
-      "connectinfo",
-      "realtime_src_main_create_room",
-      "realtime_src_main_health",
-      "realtime_src_main_health_checks_sqlite",
-      "realtime_src_main_join_room",
-      "realtime_src_main_json_error",
-      "realtime_src_main_random_token",
-      "realtime_src_main_rate_limit_returns_429_with_retry_after",
-      "realtime_src_main_rate_limited",
-      "response",
-      "socketaddr",
-      "state",
-      "statuscode"
     ],
     "9": [
       "option",
-      "path",
       "query",
       "realtime_src_main_ball",
       "realtime_src_main_connect_room",
       "realtime_src_main_connectquery",
-      "realtime_src_main_handle_socket",
       "realtime_src_main_random_code",
+      "realtime_src_main_random_token",
       "realtime_src_main_roomresponse",
-      "realtime_src_main_snapshot_json",
       "string",
-      "websocket",
       "websocketupgrade"
     ],
     "10": [
@@ -243,35 +241,41 @@
       "scripts_verify_url_sh_scripts_verify_url"
     ],
     "12": [
-      "pkg_codekick_realtime"
+      "ball"
     ],
     "13": [
-      "playwright_config"
+      "pkg_codekick_realtime"
     ],
     "14": [
-      "src_vite_env_d"
+      "player"
     ],
     "15": [
-      "tests_game_spec"
+      "playwright_config"
     ],
     "16": [
-      "vite_config"
+      "src_vite_env_d"
     ],
     "17": [
+      "tests_game_spec"
+    ],
+    "18": [
+      "vite_config"
+    ],
+    "19": [
       "vitest_config"
     ]
   },
   "cohesion": {
-    "0": 0.13363363363363365,
-    "1": 0.11264367816091954,
+    "0": 0.13968253968253969,
+    "1": 0.10752688172043011,
     "2": 0.07407407407407407,
     "3": 0.19047619047619047,
     "4": 0.09523809523809523,
-    "5": 0.1871345029239766,
-    "6": 0.15,
-    "7": 0.275,
-    "8": 0.3333333333333333,
-    "9": 0.19230769230769232,
+    "5": 0.2,
+    "6": 0.2647058823529412,
+    "7": 0.22058823529411764,
+    "8": 0.2,
+    "9": 0.2222222222222222,
     "10": 1.0,
     "11": 1.0,
     "12": 1.0,
@@ -279,18 +283,20 @@
     "14": 1.0,
     "15": 1.0,
     "16": 1.0,
-    "17": 1.0
+    "17": 1.0,
+    "18": 1.0,
+    "19": 1.0
   },
   "gods": [
     {
       "id": "src_main_gameview",
       "label": "GameView",
-      "degree": 37
+      "degree": 33
     },
     {
       "id": "src_engine_gameengine",
       "label": "GameEngine",
-      "degree": 27
+      "degree": 24
     },
     {
       "id": "realtime_src_main_appstate",
@@ -310,7 +316,7 @@
     {
       "id": "realtime_src_main_join_room",
       "label": "join_room()",
-      "degree": 14
+      "degree": 15
     },
     {
       "id": "realtime_src_main_room",
@@ -323,60 +329,71 @@
       "degree": 12
     },
     {
-      "id": "src_main_renderroute",
-      "label": "renderRoute()",
+      "id": "realtime_src_main_unix_time",
+      "label": "unix_time()",
       "degree": 10
     },
     {
-      "id": "realtime_src_main_unix_time",
-      "label": "unix_time()",
+      "id": "realtime_src_main_tick_rooms",
+      "label": "tick_rooms()",
       "degree": 10
     }
   ],
   "surprises": [
     {
-      "source": "GameView",
-      "target": "GameEngine",
+      "source": "AppState",
+      "target": "HashMap",
       "source_files": [
-        "src/main.ts",
-        "src/engine.ts"
+        "realtime/src/main.rs",
+        ""
       ],
       "confidence": "EXTRACTED",
       "relation": "references",
-      "why": "bridges separate communities"
+      "note": "Bridges community 7 \u2192 community 8"
     },
     {
-      "source": "GameView",
-      "target": "InputFrame",
+      "source": "starting_players()",
+      "target": "Vec",
       "source_files": [
-        "src/main.ts",
-        "src/engine.ts"
+        "realtime/src/main.rs",
+        ""
       ],
       "confidence": "EXTRACTED",
       "relation": "references",
-      "why": "bridges separate communities"
+      "note": "Bridges community 7 \u2192 community 5"
     },
     {
-      "source": "GameView",
-      "target": "Phase",
+      "source": "connect_room()",
+      "target": "Response",
       "source_files": [
-        "src/main.ts",
-        "src/engine.ts"
+        "realtime/src/main.rs",
+        ""
       ],
       "confidence": "EXTRACTED",
       "relation": "references",
-      "why": "bridges separate communities"
+      "note": "Bridges community 6 \u2192 community 9"
     },
     {
-      "source": "GameView",
-      "target": "SerializedMatch",
+      "source": "AppState",
+      "target": "String",
       "source_files": [
-        "src/main.ts",
-        "src/engine.ts"
+        "realtime/src/main.rs",
+        ""
       ],
       "confidence": "EXTRACTED",
       "relation": "references",
-      "why": "bridges separate communities"
+      "note": "Bridges community 9 \u2192 community 8"
+    },
+    {
+      "source": "handle_socket()",
+      "target": "String",
+      "source_files": [
+        "realtime/src/main.rs",
+        ""
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "note": "Bridges community 9 \u2192 community 5"
     }
   ],
   "tokens": {

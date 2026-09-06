@@ -13,7 +13,7 @@
       "file_type": "code",
       "norm_label": "gameview",
       "source_file": "src/main.ts",
-      "source_location": "L264"
+      "source_location": "L258"
     },
     {
       "id": "src_engine_ball",
@@ -201,7 +201,7 @@
       "file_type": "code",
       "norm_label": ".attachevents()",
       "source_file": "src/main.ts",
-      "source_location": "L447"
+      "source_location": "L441"
     },
     {
       "id": "src_main_gameview_cleanuplisteners",
@@ -212,7 +212,7 @@
       "file_type": "code",
       "norm_label": ".cleanuplisteners()",
       "source_file": "src/main.ts",
-      "source_location": "L583"
+      "source_location": "L573"
     },
     {
       "id": "src_main_gameview_connectroom",
@@ -223,7 +223,7 @@
       "file_type": "code",
       "norm_label": ".connectroom()",
       "source_file": "src/main.ts",
-      "source_location": "L658"
+      "source_location": "L648"
     },
     {
       "id": "src_main_gameview_constructor",
@@ -234,7 +234,7 @@
       "file_type": "code",
       "norm_label": ".constructor()",
       "source_file": "src/main.ts",
-      "source_location": "L294"
+      "source_location": "L288"
     },
     {
       "id": "src_main_gameview_copyroomlink",
@@ -245,7 +245,7 @@
       "file_type": "code",
       "norm_label": ".copyroomlink()",
       "source_file": "src/main.ts",
-      "source_location": "L729"
+      "source_location": "L719"
     },
     {
       "id": "src_main_gameview_createroom",
@@ -256,7 +256,7 @@
       "file_type": "code",
       "norm_label": ".createroom()",
       "source_file": "src/main.ts",
-      "source_location": "L639"
+      "source_location": "L629"
     },
     {
       "id": "src_main_gameview_destroy",
@@ -267,7 +267,7 @@
       "file_type": "code",
       "norm_label": ".destroy()",
       "source_file": "src/main.ts",
-      "source_location": "L953"
+      "source_location": "L943"
     },
     {
       "id": "src_main_gameview_draw",
@@ -278,7 +278,7 @@
       "file_type": "code",
       "norm_label": ".draw()",
       "source_file": "src/main.ts",
-      "source_location": "L851"
+      "source_location": "L841"
     },
     {
       "id": "src_main_gameview_drawball",
@@ -289,7 +289,7 @@
       "file_type": "code",
       "norm_label": ".drawball()",
       "source_file": "src/main.ts",
-      "source_location": "L946"
+      "source_location": "L936"
     },
     {
       "id": "src_main_gameview_drawgoal",
@@ -300,7 +300,7 @@
       "file_type": "code",
       "norm_label": ".drawgoal()",
       "source_file": "src/main.ts",
-      "source_location": "L913"
+      "source_location": "L903"
     },
     {
       "id": "src_main_gameview_drawpitch",
@@ -311,7 +311,7 @@
       "file_type": "code",
       "norm_label": ".drawpitch()",
       "source_file": "src/main.ts",
-      "source_location": "L878"
+      "source_location": "L868"
     },
     {
       "id": "src_main_gameview_drawplayer",
@@ -322,7 +322,7 @@
       "file_type": "code",
       "norm_label": ".drawplayer()",
       "source_file": "src/main.ts",
-      "source_location": "L924"
+      "source_location": "L914"
     },
     {
       "id": "src_main_gameview_joinroom",
@@ -333,7 +333,7 @@
       "file_type": "code",
       "norm_label": ".joinroom()",
       "source_file": "src/main.ts",
-      "source_location": "L644"
+      "source_location": "L634"
     },
     {
       "id": "src_main_gameview_loadengine",
@@ -344,7 +344,7 @@
       "file_type": "code",
       "norm_label": ".loadengine()",
       "source_file": "src/main.ts",
-      "source_location": "L317"
+      "source_location": "L311"
     },
     {
       "id": "src_main_gameview_loadsettings",
@@ -355,7 +355,7 @@
       "file_type": "code",
       "norm_label": ".loadsettings()",
       "source_file": "src/main.ts",
-      "source_location": "L307"
+      "source_location": "L301"
     },
     {
       "id": "src_main_gameview_loop",
@@ -366,7 +366,7 @@
       "file_type": "code",
       "norm_label": ".loop()",
       "source_file": "src/main.ts",
-      "source_location": "L770"
+      "source_location": "L760"
     },
     {
       "id": "src_main_gameview_nextrule",
@@ -377,7 +377,7 @@
       "file_type": "code",
       "norm_label": ".nextrule()",
       "source_file": "src/main.ts",
-      "source_location": "L847"
+      "source_location": "L837"
     },
     {
       "id": "src_main_gameview_openroomsocket",
@@ -388,7 +388,7 @@
       "file_type": "code",
       "norm_label": ".openroomsocket()",
       "source_file": "src/main.ts",
-      "source_location": "L684"
+      "source_location": "L674"
     },
     {
       "id": "src_main_gameview_prepareroomentry",
@@ -399,7 +399,7 @@
       "file_type": "code",
       "norm_label": ".prepareroomentry()",
       "source_file": "src/main.ts",
-      "source_location": "L592"
+      "source_location": "L582"
     },
     {
       "id": "src_main_gameview_rebindstatus",
@@ -410,7 +410,7 @@
       "file_type": "code",
       "norm_label": ".rebindstatus()",
       "source_file": "src/main.ts",
-      "source_location": "L755"
+      "source_location": "L745"
     },
     {
       "id": "src_main_gameview_render",
@@ -421,7 +421,7 @@
       "file_type": "code",
       "norm_label": ".render()",
       "source_file": "src/main.ts",
-      "source_location": "L355"
+      "source_location": "L349"
     },
     {
       "id": "src_main_gameview_requestroom",
@@ -432,7 +432,7 @@
       "file_type": "code",
       "norm_label": ".requestroom()",
       "source_file": "src/main.ts",
-      "source_location": "L620"
+      "source_location": "L610"
     },
     {
       "id": "src_main_gameview_resetdemo",
@@ -443,7 +443,7 @@
       "file_type": "code",
       "norm_label": ".resetdemo()",
       "source_file": "src/main.ts",
-      "source_location": "L740"
+      "source_location": "L730"
     },
     {
       "id": "src_main_gameview_roomrole",
@@ -454,7 +454,7 @@
       "file_type": "code",
       "norm_label": ".roomrole()",
       "source_file": "src/main.ts",
-      "source_location": "L716"
+      "source_location": "L706"
     },
     {
       "id": "src_main_gameview_saveengine",
@@ -465,7 +465,7 @@
       "file_type": "code",
       "norm_label": ".saveengine()",
       "source_file": "src/main.ts",
-      "source_location": "L335"
+      "source_location": "L329"
     },
     {
       "id": "src_main_gameview_savesettings",
@@ -476,7 +476,7 @@
       "file_type": "code",
       "norm_label": ".savesettings()",
       "source_file": "src/main.ts",
-      "source_location": "L313"
+      "source_location": "L307"
     },
     {
       "id": "src_main_gameview_seeddemo",
@@ -487,7 +487,7 @@
       "file_type": "code",
       "norm_label": ".seeddemo()",
       "source_file": "src/main.ts",
-      "source_location": "L340"
+      "source_location": "L334"
     },
     {
       "id": "src_main_gameview_sendroommessage",
@@ -498,7 +498,7 @@
       "file_type": "code",
       "norm_label": ".sendroommessage()",
       "source_file": "src/main.ts",
-      "source_location": "L724"
+      "source_location": "L714"
     },
     {
       "id": "src_main_gameview_setroombusy",
@@ -509,7 +509,7 @@
       "file_type": "code",
       "norm_label": ".setroombusy()",
       "source_file": "src/main.ts",
-      "source_location": "L611"
+      "source_location": "L601"
     },
     {
       "id": "src_main_gameview_setroomstatus",
@@ -520,7 +520,7 @@
       "file_type": "code",
       "norm_label": ".setroomstatus()",
       "source_file": "src/main.ts",
-      "source_location": "L615"
+      "source_location": "L605"
     },
     {
       "id": "src_main_gameview_togglepause",
@@ -531,7 +531,7 @@
       "file_type": "code",
       "norm_label": ".togglepause()",
       "source_file": "src/main.ts",
-      "source_location": "L760"
+      "source_location": "L750"
     },
     {
       "id": "src_main_gameview_updateui",
@@ -542,18 +542,7 @@
       "file_type": "code",
       "norm_label": ".updateui()",
       "source_file": "src/main.ts",
-      "source_location": "L804"
-    },
-    {
-      "id": "src_main_issavedmatch",
-      "label": "isSavedMatch()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 0,
-      "file_type": "code",
-      "norm_label": "issavedmatch()",
-      "source_file": "src/main.ts",
-      "source_location": "L42"
+      "source_location": "L794"
     },
     {
       "id": "src_engine_formatclock",
@@ -598,6 +587,17 @@
       "norm_label": "howpage()",
       "source_file": "src/main.ts",
       "source_location": "L177"
+    },
+    {
+      "id": "src_main_issavedmatch",
+      "label": "isSavedMatch()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "file_type": "code",
+      "norm_label": "issavedmatch()",
+      "source_file": "src/main.ts",
+      "source_location": "L42"
     },
     {
       "id": "src_main_navigate",
@@ -1026,10 +1026,20 @@
       "source_location": "L1"
     },
     {
+      "id": "ball",
+      "label": "Ball",
+      "_origin": "ast",
+      "community": 12,
+      "file_type": "code",
+      "norm_label": "ball",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
       "id": "pkg_codekick_realtime",
       "label": "codekick-realtime",
       "_origin": "ast",
-      "community": 12,
+      "community": 13,
       "ecosystem": "cargo",
       "file_type": "code",
       "norm_label": "codekick-realtime",
@@ -1039,10 +1049,20 @@
       "version": "0.1.0"
     },
     {
+      "id": "player",
+      "label": "Player",
+      "_origin": "ast",
+      "community": 14,
+      "file_type": "code",
+      "norm_label": "player",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
       "id": "playwright_config",
       "label": "playwright.config.ts",
       "_origin": "ast",
-      "community": 13,
+      "community": 15,
       "file_type": "code",
       "norm_label": "playwright.config.ts",
       "source_file": "playwright.config.ts",
@@ -1052,7 +1072,7 @@
       "id": "src_vite_env_d",
       "label": "vite-env.d.ts",
       "_origin": "ast",
-      "community": 14,
+      "community": 16,
       "file_type": "code",
       "norm_label": "vite-env.d.ts",
       "source_file": "src/vite-env.d.ts",
@@ -1062,7 +1082,7 @@
       "id": "tests_game_spec",
       "label": "game.spec.ts",
       "_origin": "ast",
-      "community": 15,
+      "community": 17,
       "file_type": "code",
       "norm_label": "game.spec.ts",
       "source_file": "tests/game.spec.ts",
@@ -1072,7 +1092,7 @@
       "id": "vite_config",
       "label": "vite.config.ts",
       "_origin": "ast",
-      "community": 16,
+      "community": 18,
       "file_type": "code",
       "norm_label": "vite.config.ts",
       "source_file": "vite.config.ts",
@@ -1082,7 +1102,7 @@
       "id": "vitest_config",
       "label": "vitest.config.ts",
       "_origin": "ast",
-      "community": 17,
+      "community": 19,
       "file_type": "code",
       "norm_label": "vitest.config.ts",
       "source_file": "vitest.config.ts",
@@ -1579,232 +1599,12 @@
       "source_location": "L10"
     },
     {
-      "id": "ball",
-      "label": "Ball",
-      "_origin": "ast",
-      "community": 5,
-      "file_type": "code",
-      "norm_label": "ball",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "hashmap",
-      "label": "HashMap",
-      "_origin": "ast",
-      "community": 5,
-      "file_type": "code",
-      "norm_label": "hashmap",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "player",
-      "label": "Player",
-      "_origin": "ast",
-      "community": 5,
-      "file_type": "code",
-      "norm_label": "player",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "realtime_src_main_matchstate",
-      "label": "MatchState",
-      "_origin": "ast",
-      "community": 5,
-      "file_type": "code",
-      "norm_label": "matchstate",
-      "source_file": "realtime/src/main.rs",
-      "source_location": "L71"
-    },
-    {
-      "id": "realtime_src_main_matchstate_advance",
-      "label": ".advance()",
-      "_origin": "ast",
-      "community": 5,
-      "file_type": "code",
-      "norm_label": ".advance()",
-      "source_file": "realtime/src/main.rs",
-      "source_location": "L213"
-    },
-    {
-      "id": "realtime_src_main_matchstate_check_goal",
-      "label": ".check_goal()",
-      "_origin": "ast",
-      "community": 5,
-      "file_type": "code",
-      "norm_label": ".check_goal()",
-      "source_file": "realtime/src/main.rs",
-      "source_location": "L379"
-    },
-    {
-      "id": "realtime_src_main_matchstate_kick",
-      "label": ".kick()",
-      "_origin": "ast",
-      "community": 5,
-      "file_type": "code",
-      "norm_label": ".kick()",
-      "source_file": "realtime/src/main.rs",
-      "source_location": "L286"
-    },
-    {
-      "id": "realtime_src_main_matchstate_move_ball",
-      "label": ".move_ball()",
-      "_origin": "ast",
-      "community": 5,
-      "file_type": "code",
-      "norm_label": ".move_ball()",
-      "source_file": "realtime/src/main.rs",
-      "source_location": "L325"
-    },
-    {
-      "id": "realtime_src_main_matchstate_move_bot",
-      "label": ".move_bot()",
-      "_origin": "ast",
-      "community": 5,
-      "file_type": "code",
-      "norm_label": ".move_bot()",
-      "source_file": "realtime/src/main.rs",
-      "source_location": "L268"
-    },
-    {
-      "id": "realtime_src_main_matchstate_move_player",
-      "label": ".move_player()",
-      "_origin": "ast",
-      "community": 5,
-      "file_type": "code",
-      "norm_label": ".move_player()",
-      "source_file": "realtime/src/main.rs",
-      "source_location": "L255"
-    },
-    {
-      "id": "realtime_src_main_matchstate_try_pickup",
-      "label": ".try_pickup()",
-      "_origin": "ast",
-      "community": 5,
-      "file_type": "code",
-      "norm_label": ".try_pickup()",
-      "source_file": "realtime/src/main.rs",
-      "source_location": "L358"
-    },
-    {
-      "id": "realtime_src_main_member",
-      "label": "Member",
-      "_origin": "ast",
-      "community": 5,
-      "file_type": "code",
-      "norm_label": "member",
-      "source_file": "realtime/src/main.rs",
-      "source_location": "L64"
-    },
-    {
-      "id": "realtime_src_main_persistedroom",
-      "label": "PersistedRoom",
-      "_origin": "ast",
-      "community": 5,
-      "file_type": "code",
-      "norm_label": "persistedroom",
-      "source_file": "realtime/src/main.rs",
-      "source_location": "L170"
-    },
-    {
-      "id": "realtime_src_main_playerinput",
-      "label": "PlayerInput",
-      "_origin": "ast",
-      "community": 5,
-      "file_type": "code",
-      "norm_label": "playerinput",
-      "source_file": "realtime/src/main.rs",
-      "source_location": "L113"
-    },
-    {
-      "id": "realtime_src_main_room",
-      "label": "Room",
-      "_origin": "ast",
-      "community": 5,
-      "file_type": "code",
-      "norm_label": "room",
-      "source_file": "realtime/src/main.rs",
-      "source_location": "L50"
-    },
-    {
-      "id": "realtime_src_main_score",
-      "label": "Score",
-      "_origin": "ast",
-      "community": 5,
-      "file_type": "code",
-      "norm_label": "score",
-      "source_file": "realtime/src/main.rs",
-      "source_location": "L107"
-    },
-    {
-      "id": "realtime_src_main_snapshot",
-      "label": "Snapshot",
-      "_origin": "ast",
-      "community": 5,
-      "file_type": "code",
-      "norm_label": "snapshot",
-      "source_file": "realtime/src/main.rs",
-      "source_location": "L160"
-    },
-    {
-      "id": "sender",
-      "label": "Sender",
-      "_origin": "ast",
-      "community": 5,
-      "file_type": "code",
-      "norm_label": "sender",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "vec",
-      "label": "Vec",
-      "_origin": "ast",
-      "community": 5,
-      "file_type": "code",
-      "norm_label": "vec",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "arc",
-      "label": "Arc",
-      "_origin": "ast",
-      "community": 6,
-      "file_type": "code",
-      "norm_label": "arc",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
       "id": "asref",
       "label": "AsRef",
       "_origin": "ast",
-      "community": 6,
+      "community": 5,
       "file_type": "code",
       "norm_label": "asref",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "atomicbool",
-      "label": "AtomicBool",
-      "_origin": "ast",
-      "community": 6,
-      "file_type": "code",
-      "norm_label": "atomicbool",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "connection",
-      "label": "Connection",
-      "_origin": "ast",
-      "community": 6,
-      "file_type": "code",
-      "norm_label": "connection",
       "source_file": "",
       "source_location": ""
     },
@@ -1812,81 +1612,211 @@
       "id": "filepath",
       "label": "FilePath",
       "_origin": "ast",
-      "community": 6,
+      "community": 5,
       "file_type": "code",
       "norm_label": "filepath",
       "source_file": "",
       "source_location": ""
     },
     {
-      "id": "instant",
-      "label": "Instant",
+      "id": "realtime_src_main",
+      "label": "main.rs",
       "_origin": "ast",
-      "community": 6,
+      "community": 5,
       "file_type": "code",
-      "norm_label": "instant",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "ipaddr",
-      "label": "IpAddr",
-      "_origin": "ast",
-      "community": 6,
-      "file_type": "code",
-      "norm_label": "ipaddr",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "mutex",
-      "label": "Mutex",
-      "_origin": "ast",
-      "community": 6,
-      "file_type": "code",
-      "norm_label": "mutex",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "realtime_src_main_appstate",
-      "label": "AppState",
-      "_origin": "ast",
-      "community": 6,
-      "file_type": "code",
-      "norm_label": "appstate",
+      "norm_label": "main.rs",
       "source_file": "realtime/src/main.rs",
-      "source_location": "L41"
+      "source_location": "L1"
     },
     {
-      "id": "realtime_src_main_appstate_allowed",
-      "label": ".allowed()",
+      "id": "realtime_src_main_active_match_continues_while_storage_is_busy",
+      "label": "active_match_continues_while_storage_is_busy()",
       "_origin": "ast",
-      "community": 6,
+      "community": 5,
       "file_type": "code",
-      "norm_label": ".allowed()",
+      "norm_label": "active_match_continues_while_storage_is_busy()",
       "source_file": "realtime/src/main.rs",
-      "source_location": "L581"
+      "source_location": "L1125"
+    },
+    {
+      "id": "realtime_src_main_apply_client_message",
+      "label": "apply_client_message()",
+      "_origin": "ast",
+      "community": 5,
+      "file_type": "code",
+      "norm_label": "apply_client_message()",
+      "source_file": "realtime/src/main.rs",
+      "source_location": "L863"
     },
     {
       "id": "realtime_src_main_appstate_open",
       "label": ".open()",
       "_origin": "ast",
-      "community": 6,
+      "community": 5,
       "file_type": "code",
       "norm_label": ".open()",
       "source_file": "realtime/src/main.rs",
       "source_location": "L456"
     },
     {
-      "id": "realtime_src_main_appstate_persist_tick",
-      "label": ".persist_tick()",
+      "id": "realtime_src_main_clientmessage",
+      "label": "ClientMessage",
+      "_origin": "ast",
+      "community": 5,
+      "file_type": "code",
+      "norm_label": "clientmessage",
+      "source_file": "realtime/src/main.rs",
+      "source_location": "L130"
+    },
+    {
+      "id": "realtime_src_main_handle_socket",
+      "label": "handle_socket()",
+      "_origin": "ast",
+      "community": 5,
+      "file_type": "code",
+      "norm_label": "handle_socket()",
+      "source_file": "realtime/src/main.rs",
+      "source_location": "L797"
+    },
+    {
+      "id": "realtime_src_main_main",
+      "label": "main()",
+      "_origin": "ast",
+      "community": 5,
+      "file_type": "code",
+      "norm_label": "main()",
+      "source_file": "realtime/src/main.rs",
+      "source_location": "L1001"
+    },
+    {
+      "id": "realtime_src_main_matchstate_new",
+      "label": ".new()",
+      "_origin": "ast",
+      "community": 5,
+      "file_type": "code",
+      "norm_label": ".new()",
+      "source_file": "realtime/src/main.rs",
+      "source_location": "L179"
+    },
+    {
+      "id": "realtime_src_main_matchstate_reset",
+      "label": ".reset()",
+      "_origin": "ast",
+      "community": 5,
+      "file_type": "code",
+      "norm_label": ".reset()",
+      "source_file": "realtime/src/main.rs",
+      "source_location": "L202"
+    },
+    {
+      "id": "realtime_src_main_online_match_uses_a_four_minute_clock",
+      "label": "online_match_uses_a_four_minute_clock()",
+      "_origin": "ast",
+      "community": 5,
+      "file_type": "code",
+      "norm_label": "online_match_uses_a_four_minute_clock()",
+      "source_file": "realtime/src/main.rs",
+      "source_location": "L1173"
+    },
+    {
+      "id": "realtime_src_main_player",
+      "label": "Player",
+      "_origin": "ast",
+      "community": 5,
+      "file_type": "code",
+      "norm_label": "player",
+      "source_file": "realtime/src/main.rs",
+      "source_location": "L87"
+    },
+    {
+      "id": "realtime_src_main_router",
+      "label": "router()",
+      "_origin": "ast",
+      "community": 5,
+      "file_type": "code",
+      "norm_label": "router()",
+      "source_file": "realtime/src/main.rs",
+      "source_location": "L970"
+    },
+    {
+      "id": "realtime_src_main_snapshot_json",
+      "label": "snapshot_json()",
+      "_origin": "ast",
+      "community": 5,
+      "file_type": "code",
+      "norm_label": "snapshot_json()",
+      "source_file": "realtime/src/main.rs",
+      "source_location": "L914"
+    },
+    {
+      "id": "realtime_src_main_starting_players",
+      "label": "starting_players()",
+      "_origin": "ast",
+      "community": 5,
+      "file_type": "code",
+      "norm_label": "starting_players()",
+      "source_file": "realtime/src/main.rs",
+      "source_location": "L414"
+    },
+    {
+      "id": "realtime_src_main_tick_rooms",
+      "label": "tick_rooms()",
+      "_origin": "ast",
+      "community": 5,
+      "file_type": "code",
+      "norm_label": "tick_rooms()",
+      "source_file": "realtime/src/main.rs",
+      "source_location": "L926"
+    },
+    {
+      "id": "realtime_src_main_unix_time",
+      "label": "unix_time()",
+      "_origin": "ast",
+      "community": 5,
+      "file_type": "code",
+      "norm_label": "unix_time()",
+      "source_file": "realtime/src/main.rs",
+      "source_location": "L599"
+    },
+    {
+      "id": "self",
+      "label": "Self",
+      "_origin": "ast",
+      "community": 5,
+      "file_type": "code",
+      "norm_label": "self",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "websocket",
+      "label": "WebSocket",
+      "_origin": "ast",
+      "community": 5,
+      "file_type": "code",
+      "norm_label": "websocket",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "connectinfo",
+      "label": "ConnectInfo",
       "_origin": "ast",
       "community": 6,
       "file_type": "code",
-      "norm_label": ".persist_tick()",
-      "source_file": "realtime/src/main.rs",
-      "source_location": "L545"
+      "norm_label": "connectinfo",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "path",
+      "label": "Path",
+      "_origin": "ast",
+      "community": 6,
+      "file_type": "code",
+      "norm_label": "path",
+      "source_file": "",
+      "source_location": ""
     },
     {
       "id": "realtime_src_main_appstate_save_room",
@@ -1899,210 +1829,20 @@
       "source_location": "L524"
     },
     {
-      "id": "result",
-      "label": "Result",
-      "_origin": "ast",
-      "community": 6,
-      "file_type": "code",
-      "norm_label": "result",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "self",
-      "label": "Self",
-      "_origin": "ast",
-      "community": 6,
-      "file_type": "code",
-      "norm_label": "self",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "vecdeque",
-      "label": "VecDeque",
-      "_origin": "ast",
-      "community": 6,
-      "file_type": "code",
-      "norm_label": "vecdeque",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "realtime_src_main",
-      "label": "main.rs",
-      "_origin": "ast",
-      "community": 7,
-      "file_type": "code",
-      "norm_label": "main.rs",
-      "source_file": "realtime/src/main.rs",
-      "source_location": "L1"
-    },
-    {
-      "id": "realtime_src_main_active_match_continues_while_storage_is_busy",
-      "label": "active_match_continues_while_storage_is_busy()",
-      "_origin": "ast",
-      "community": 7,
-      "file_type": "code",
-      "norm_label": "active_match_continues_while_storage_is_busy()",
-      "source_file": "realtime/src/main.rs",
-      "source_location": "L1072"
-    },
-    {
-      "id": "realtime_src_main_apply_client_message",
-      "label": "apply_client_message()",
-      "_origin": "ast",
-      "community": 7,
-      "file_type": "code",
-      "norm_label": "apply_client_message()",
-      "source_file": "realtime/src/main.rs",
-      "source_location": "L863"
-    },
-    {
       "id": "realtime_src_main_claim_room_persistence_survives_restart",
       "label": "claim_room_persistence_survives_restart()",
       "_origin": "ast",
-      "community": 7,
+      "community": 6,
       "file_type": "code",
       "norm_label": "claim_room_persistence_survives_restart()",
       "source_file": "realtime/src/main.rs",
-      "source_location": "L1043"
-    },
-    {
-      "id": "realtime_src_main_clientmessage",
-      "label": "ClientMessage",
-      "_origin": "ast",
-      "community": 7,
-      "file_type": "code",
-      "norm_label": "clientmessage",
-      "source_file": "realtime/src/main.rs",
-      "source_location": "L130"
-    },
-    {
-      "id": "realtime_src_main_main",
-      "label": "main()",
-      "_origin": "ast",
-      "community": 7,
-      "file_type": "code",
-      "norm_label": "main()",
-      "source_file": "realtime/src/main.rs",
-      "source_location": "L1001"
-    },
-    {
-      "id": "realtime_src_main_matchstate_new",
-      "label": ".new()",
-      "_origin": "ast",
-      "community": 7,
-      "file_type": "code",
-      "norm_label": ".new()",
-      "source_file": "realtime/src/main.rs",
-      "source_location": "L179"
-    },
-    {
-      "id": "realtime_src_main_matchstate_reset",
-      "label": ".reset()",
-      "_origin": "ast",
-      "community": 7,
-      "file_type": "code",
-      "norm_label": ".reset()",
-      "source_file": "realtime/src/main.rs",
-      "source_location": "L202"
-    },
-    {
-      "id": "realtime_src_main_online_match_uses_a_four_minute_clock",
-      "label": "online_match_uses_a_four_minute_clock()",
-      "_origin": "ast",
-      "community": 7,
-      "file_type": "code",
-      "norm_label": "online_match_uses_a_four_minute_clock()",
-      "source_file": "realtime/src/main.rs",
-      "source_location": "L1119"
-    },
-    {
-      "id": "realtime_src_main_player",
-      "label": "Player",
-      "_origin": "ast",
-      "community": 7,
-      "file_type": "code",
-      "norm_label": "player",
-      "source_file": "realtime/src/main.rs",
-      "source_location": "L87"
-    },
-    {
-      "id": "realtime_src_main_router",
-      "label": "router()",
-      "_origin": "ast",
-      "community": 7,
-      "file_type": "code",
-      "norm_label": "router()",
-      "source_file": "realtime/src/main.rs",
-      "source_location": "L970"
-    },
-    {
-      "id": "realtime_src_main_starting_players",
-      "label": "starting_players()",
-      "_origin": "ast",
-      "community": 7,
-      "file_type": "code",
-      "norm_label": "starting_players()",
-      "source_file": "realtime/src/main.rs",
-      "source_location": "L414"
-    },
-    {
-      "id": "realtime_src_main_test_state",
-      "label": "test_state()",
-      "_origin": "ast",
-      "community": 7,
-      "file_type": "code",
-      "norm_label": "test_state()",
-      "source_file": "realtime/src/main.rs",
-      "source_location": "L1038"
-    },
-    {
-      "id": "realtime_src_main_tick_rooms",
-      "label": "tick_rooms()",
-      "_origin": "ast",
-      "community": 7,
-      "file_type": "code",
-      "norm_label": "tick_rooms()",
-      "source_file": "realtime/src/main.rs",
-      "source_location": "L926"
-    },
-    {
-      "id": "realtime_src_main_unix_time",
-      "label": "unix_time()",
-      "_origin": "ast",
-      "community": 7,
-      "file_type": "code",
-      "norm_label": "unix_time()",
-      "source_file": "realtime/src/main.rs",
-      "source_location": "L599"
-    },
-    {
-      "id": "tempdir",
-      "label": "TempDir",
-      "_origin": "ast",
-      "community": 7,
-      "file_type": "code",
-      "norm_label": "tempdir",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "connectinfo",
-      "label": "ConnectInfo",
-      "_origin": "ast",
-      "community": 8,
-      "file_type": "code",
-      "norm_label": "connectinfo",
-      "source_file": "",
-      "source_location": ""
+      "source_location": "L1044"
     },
     {
       "id": "realtime_src_main_create_room",
       "label": "create_room()",
       "_origin": "ast",
-      "community": 8,
+      "community": 6,
       "file_type": "code",
       "norm_label": "create_room()",
       "source_file": "realtime/src/main.rs",
@@ -2112,7 +1852,7 @@
       "id": "realtime_src_main_health",
       "label": "health()",
       "_origin": "ast",
-      "community": 8,
+      "community": 6,
       "file_type": "code",
       "norm_label": "health()",
       "source_file": "realtime/src/main.rs",
@@ -2122,17 +1862,17 @@
       "id": "realtime_src_main_health_checks_sqlite",
       "label": "health_checks_sqlite()",
       "_origin": "ast",
-      "community": 8,
+      "community": 6,
       "file_type": "code",
       "norm_label": "health_checks_sqlite()",
       "source_file": "realtime/src/main.rs",
-      "source_location": "L1127"
+      "source_location": "L1182"
     },
     {
       "id": "realtime_src_main_join_room",
       "label": "join_room()",
       "_origin": "ast",
-      "community": 8,
+      "community": 6,
       "file_type": "code",
       "norm_label": "join_room()",
       "source_file": "realtime/src/main.rs",
@@ -2142,47 +1882,47 @@
       "id": "realtime_src_main_json_error",
       "label": "json_error()",
       "_origin": "ast",
-      "community": 8,
+      "community": 6,
       "file_type": "code",
       "norm_label": "json_error()",
       "source_file": "realtime/src/main.rs",
       "source_location": "L622"
     },
     {
-      "id": "realtime_src_main_random_token",
-      "label": "random_token()",
-      "_origin": "ast",
-      "community": 8,
-      "file_type": "code",
-      "norm_label": "random_token()",
-      "source_file": "realtime/src/main.rs",
-      "source_location": "L606"
-    },
-    {
       "id": "realtime_src_main_rate_limit_returns_429_with_retry_after",
       "label": "rate_limit_returns_429_with_retry_after()",
       "_origin": "ast",
-      "community": 8,
+      "community": 6,
       "file_type": "code",
       "norm_label": "rate_limit_returns_429_with_retry_after()",
       "source_file": "realtime/src/main.rs",
-      "source_location": "L1134"
+      "source_location": "L1190"
     },
     {
       "id": "realtime_src_main_rate_limited",
       "label": "rate_limited()",
       "_origin": "ast",
-      "community": 8,
+      "community": 6,
       "file_type": "code",
       "norm_label": "rate_limited()",
       "source_file": "realtime/src/main.rs",
       "source_location": "L626"
     },
     {
+      "id": "realtime_src_main_test_state",
+      "label": "test_state()",
+      "_origin": "ast",
+      "community": 6,
+      "file_type": "code",
+      "norm_label": "test_state()",
+      "source_file": "realtime/src/main.rs",
+      "source_location": "L1038"
+    },
+    {
       "id": "response",
       "label": "Response",
       "_origin": "ast",
-      "community": 8,
+      "community": 6,
       "file_type": "code",
       "norm_label": "response",
       "source_file": "",
@@ -2192,7 +1932,7 @@
       "id": "socketaddr",
       "label": "SocketAddr",
       "_origin": "ast",
-      "community": 8,
+      "community": 6,
       "file_type": "code",
       "norm_label": "socketaddr",
       "source_file": "",
@@ -2202,7 +1942,7 @@
       "id": "state",
       "label": "State",
       "_origin": "ast",
-      "community": 8,
+      "community": 6,
       "file_type": "code",
       "norm_label": "state",
       "source_file": "",
@@ -2212,9 +1952,299 @@
       "id": "statuscode",
       "label": "StatusCode",
       "_origin": "ast",
-      "community": 8,
+      "community": 6,
       "file_type": "code",
       "norm_label": "statuscode",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "tempdir",
+      "label": "TempDir",
+      "_origin": "ast",
+      "community": 6,
+      "file_type": "code",
+      "norm_label": "tempdir",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "hashmap",
+      "label": "HashMap",
+      "_origin": "ast",
+      "community": 7,
+      "file_type": "code",
+      "norm_label": "hashmap",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "realtime_src_main_matchstate",
+      "label": "MatchState",
+      "_origin": "ast",
+      "community": 7,
+      "file_type": "code",
+      "norm_label": "matchstate",
+      "source_file": "realtime/src/main.rs",
+      "source_location": "L71"
+    },
+    {
+      "id": "realtime_src_main_matchstate_advance",
+      "label": ".advance()",
+      "_origin": "ast",
+      "community": 7,
+      "file_type": "code",
+      "norm_label": ".advance()",
+      "source_file": "realtime/src/main.rs",
+      "source_location": "L213"
+    },
+    {
+      "id": "realtime_src_main_matchstate_check_goal",
+      "label": ".check_goal()",
+      "_origin": "ast",
+      "community": 7,
+      "file_type": "code",
+      "norm_label": ".check_goal()",
+      "source_file": "realtime/src/main.rs",
+      "source_location": "L379"
+    },
+    {
+      "id": "realtime_src_main_matchstate_kick",
+      "label": ".kick()",
+      "_origin": "ast",
+      "community": 7,
+      "file_type": "code",
+      "norm_label": ".kick()",
+      "source_file": "realtime/src/main.rs",
+      "source_location": "L286"
+    },
+    {
+      "id": "realtime_src_main_matchstate_move_ball",
+      "label": ".move_ball()",
+      "_origin": "ast",
+      "community": 7,
+      "file_type": "code",
+      "norm_label": ".move_ball()",
+      "source_file": "realtime/src/main.rs",
+      "source_location": "L325"
+    },
+    {
+      "id": "realtime_src_main_matchstate_move_bot",
+      "label": ".move_bot()",
+      "_origin": "ast",
+      "community": 7,
+      "file_type": "code",
+      "norm_label": ".move_bot()",
+      "source_file": "realtime/src/main.rs",
+      "source_location": "L268"
+    },
+    {
+      "id": "realtime_src_main_matchstate_move_player",
+      "label": ".move_player()",
+      "_origin": "ast",
+      "community": 7,
+      "file_type": "code",
+      "norm_label": ".move_player()",
+      "source_file": "realtime/src/main.rs",
+      "source_location": "L255"
+    },
+    {
+      "id": "realtime_src_main_matchstate_try_pickup",
+      "label": ".try_pickup()",
+      "_origin": "ast",
+      "community": 7,
+      "file_type": "code",
+      "norm_label": ".try_pickup()",
+      "source_file": "realtime/src/main.rs",
+      "source_location": "L358"
+    },
+    {
+      "id": "realtime_src_main_member",
+      "label": "Member",
+      "_origin": "ast",
+      "community": 7,
+      "file_type": "code",
+      "norm_label": "member",
+      "source_file": "realtime/src/main.rs",
+      "source_location": "L64"
+    },
+    {
+      "id": "realtime_src_main_persistedroom",
+      "label": "PersistedRoom",
+      "_origin": "ast",
+      "community": 7,
+      "file_type": "code",
+      "norm_label": "persistedroom",
+      "source_file": "realtime/src/main.rs",
+      "source_location": "L170"
+    },
+    {
+      "id": "realtime_src_main_playerinput",
+      "label": "PlayerInput",
+      "_origin": "ast",
+      "community": 7,
+      "file_type": "code",
+      "norm_label": "playerinput",
+      "source_file": "realtime/src/main.rs",
+      "source_location": "L113"
+    },
+    {
+      "id": "realtime_src_main_room",
+      "label": "Room",
+      "_origin": "ast",
+      "community": 7,
+      "file_type": "code",
+      "norm_label": "room",
+      "source_file": "realtime/src/main.rs",
+      "source_location": "L50"
+    },
+    {
+      "id": "realtime_src_main_score",
+      "label": "Score",
+      "_origin": "ast",
+      "community": 7,
+      "file_type": "code",
+      "norm_label": "score",
+      "source_file": "realtime/src/main.rs",
+      "source_location": "L107"
+    },
+    {
+      "id": "realtime_src_main_snapshot",
+      "label": "Snapshot",
+      "_origin": "ast",
+      "community": 7,
+      "file_type": "code",
+      "norm_label": "snapshot",
+      "source_file": "realtime/src/main.rs",
+      "source_location": "L160"
+    },
+    {
+      "id": "sender",
+      "label": "Sender",
+      "_origin": "ast",
+      "community": 7,
+      "file_type": "code",
+      "norm_label": "sender",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "vec",
+      "label": "Vec",
+      "_origin": "ast",
+      "community": 7,
+      "file_type": "code",
+      "norm_label": "vec",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "arc",
+      "label": "Arc",
+      "_origin": "ast",
+      "community": 8,
+      "file_type": "code",
+      "norm_label": "arc",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "atomicbool",
+      "label": "AtomicBool",
+      "_origin": "ast",
+      "community": 8,
+      "file_type": "code",
+      "norm_label": "atomicbool",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "connection",
+      "label": "Connection",
+      "_origin": "ast",
+      "community": 8,
+      "file_type": "code",
+      "norm_label": "connection",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "instant",
+      "label": "Instant",
+      "_origin": "ast",
+      "community": 8,
+      "file_type": "code",
+      "norm_label": "instant",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "ipaddr",
+      "label": "IpAddr",
+      "_origin": "ast",
+      "community": 8,
+      "file_type": "code",
+      "norm_label": "ipaddr",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "mutex",
+      "label": "Mutex",
+      "_origin": "ast",
+      "community": 8,
+      "file_type": "code",
+      "norm_label": "mutex",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "realtime_src_main_appstate",
+      "label": "AppState",
+      "_origin": "ast",
+      "community": 8,
+      "file_type": "code",
+      "norm_label": "appstate",
+      "source_file": "realtime/src/main.rs",
+      "source_location": "L41"
+    },
+    {
+      "id": "realtime_src_main_appstate_allowed",
+      "label": ".allowed()",
+      "_origin": "ast",
+      "community": 8,
+      "file_type": "code",
+      "norm_label": ".allowed()",
+      "source_file": "realtime/src/main.rs",
+      "source_location": "L581"
+    },
+    {
+      "id": "realtime_src_main_appstate_persist_tick",
+      "label": ".persist_tick()",
+      "_origin": "ast",
+      "community": 8,
+      "file_type": "code",
+      "norm_label": ".persist_tick()",
+      "source_file": "realtime/src/main.rs",
+      "source_location": "L545"
+    },
+    {
+      "id": "result",
+      "label": "Result",
+      "_origin": "ast",
+      "community": 8,
+      "file_type": "code",
+      "norm_label": "result",
+      "source_file": "",
+      "source_location": ""
+    },
+    {
+      "id": "vecdeque",
+      "label": "VecDeque",
+      "_origin": "ast",
+      "community": 8,
+      "file_type": "code",
+      "norm_label": "vecdeque",
       "source_file": "",
       "source_location": ""
     },
@@ -2225,16 +2255,6 @@
       "community": 9,
       "file_type": "code",
       "norm_label": "option",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "path",
-      "label": "Path",
-      "_origin": "ast",
-      "community": 9,
-      "file_type": "code",
-      "norm_label": "path",
       "source_file": "",
       "source_location": ""
     },
@@ -2279,16 +2299,6 @@
       "source_location": "L764"
     },
     {
-      "id": "realtime_src_main_handle_socket",
-      "label": "handle_socket()",
-      "_origin": "ast",
-      "community": 9,
-      "file_type": "code",
-      "norm_label": "handle_socket()",
-      "source_file": "realtime/src/main.rs",
-      "source_location": "L797"
-    },
-    {
       "id": "realtime_src_main_random_code",
       "label": "random_code()",
       "_origin": "ast",
@@ -2297,6 +2307,16 @@
       "norm_label": "random_code()",
       "source_file": "realtime/src/main.rs",
       "source_location": "L614"
+    },
+    {
+      "id": "realtime_src_main_random_token",
+      "label": "random_token()",
+      "_origin": "ast",
+      "community": 9,
+      "file_type": "code",
+      "norm_label": "random_token()",
+      "source_file": "realtime/src/main.rs",
+      "source_location": "L606"
     },
     {
       "id": "realtime_src_main_roomresponse",
@@ -2309,32 +2329,12 @@
       "source_location": "L151"
     },
     {
-      "id": "realtime_src_main_snapshot_json",
-      "label": "snapshot_json()",
-      "_origin": "ast",
-      "community": 9,
-      "file_type": "code",
-      "norm_label": "snapshot_json()",
-      "source_file": "realtime/src/main.rs",
-      "source_location": "L914"
-    },
-    {
       "id": "string",
       "label": "String",
       "_origin": "ast",
       "community": 9,
       "file_type": "code",
       "norm_label": "string",
-      "source_file": "",
-      "source_location": ""
-    },
-    {
-      "id": "websocket",
-      "label": "WebSocket",
-      "_origin": "ast",
-      "community": 9,
-      "file_type": "code",
-      "norm_label": "websocket",
       "source_file": "",
       "source_location": ""
     },
@@ -2359,7 +2359,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "realtime/src/main.rs",
-      "source_location": "L1074",
+      "source_location": "L1127",
       "weight": 1.0
     },
     {
@@ -2371,7 +2371,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "realtime/src/main.rs",
-      "source_location": "L1077",
+      "source_location": "L1130",
       "weight": 1.0
     },
     {
@@ -2383,7 +2383,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "realtime/src/main.rs",
-      "source_location": "L1096",
+      "source_location": "L1149",
       "weight": 1.0
     },
     {
@@ -2395,7 +2395,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "realtime/src/main.rs",
-      "source_location": "L1105",
+      "source_location": "L1158",
       "weight": 1.0
     },
     {
@@ -2455,7 +2455,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "realtime/src/main.rs",
-      "source_location": "L1045",
+      "source_location": "L1046",
       "weight": 1.0
     },
     {
@@ -2467,7 +2467,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "realtime/src/main.rs",
-      "source_location": "L1049",
+      "source_location": "L1050",
       "weight": 1.0
     },
     {
@@ -2479,7 +2479,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "realtime/src/main.rs",
-      "source_location": "L1056",
+      "source_location": "L1057",
       "weight": 1.0
     },
     {
@@ -2491,7 +2491,67 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "realtime/src/main.rs",
-      "source_location": "L1061",
+      "source_location": "L1062",
+      "weight": 1.0
+    },
+    {
+      "source": "realtime_src_main_claim_room_persistence_survives_restart",
+      "target": "realtime_src_main_tick_rooms",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "realtime/src/main.rs",
+      "source_location": "L1079",
+      "weight": 1.0
+    },
+    {
+      "source": "realtime_src_main_claim_room_persistence_survives_restart",
+      "target": "realtime_src_main_join_room",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "realtime/src/main.rs",
+      "source_location": "L1105",
+      "weight": 1.0
+    },
+    {
+      "source": "realtime_src_main_claim_room_persistence_survives_restart",
+      "target": "state",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "realtime/src/main.rs",
+      "source_location": "L1106",
+      "weight": 1.0
+    },
+    {
+      "source": "realtime_src_main_claim_room_persistence_survives_restart",
+      "target": "connectinfo",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "realtime/src/main.rs",
+      "source_location": "L1107",
+      "weight": 1.0
+    },
+    {
+      "source": "realtime_src_main_claim_room_persistence_survives_restart",
+      "target": "path",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "realtime/src/main.rs",
+      "source_location": "L1108",
       "weight": 1.0
     },
     {
@@ -2671,7 +2731,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "realtime/src/main.rs",
-      "source_location": "L1129",
+      "source_location": "L1184",
       "weight": 1.0
     },
     {
@@ -2683,7 +2743,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "realtime/src/main.rs",
-      "source_location": "L1129",
+      "source_location": "L1184",
       "weight": 1.0
     },
     {
@@ -2695,7 +2755,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "realtime/src/main.rs",
-      "source_location": "L1129",
+      "source_location": "L1184",
       "weight": 1.0
     },
     {
@@ -2935,7 +2995,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "realtime/src/main.rs",
-      "source_location": "L1120",
+      "source_location": "L1174",
       "weight": 1.0
     },
     {
@@ -2947,7 +3007,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "realtime/src/main.rs",
-      "source_location": "L1136",
+      "source_location": "L1192",
       "weight": 1.0
     },
     {
@@ -2959,7 +3019,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "realtime/src/main.rs",
-      "source_location": "L1146",
+      "source_location": "L1202",
       "weight": 1.0
     },
     {
@@ -2971,7 +3031,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "realtime/src/main.rs",
-      "source_location": "L1146",
+      "source_location": "L1202",
       "weight": 1.0
     },
     {
@@ -2983,7 +3043,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "realtime/src/main.rs",
-      "source_location": "L1146",
+      "source_location": "L1202",
       "weight": 1.0
     },
     {
@@ -3379,7 +3439,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L452",
+      "source_location": "L446",
       "weight": 1.0
     },
     {
@@ -3391,7 +3451,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L458",
+      "source_location": "L452",
       "weight": 1.0
     },
     {
@@ -3403,7 +3463,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L459",
+      "source_location": "L453",
       "weight": 1.0
     },
     {
@@ -3415,7 +3475,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L478",
+      "source_location": "L472",
       "weight": 1.0
     },
     {
@@ -3427,7 +3487,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L499",
+      "source_location": "L493",
       "weight": 1.0
     },
     {
@@ -3439,7 +3499,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L500",
+      "source_location": "L494",
       "weight": 1.0
     },
     {
@@ -3451,7 +3511,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L508",
+      "source_location": "L502",
       "weight": 1.0
     },
     {
@@ -3463,7 +3523,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L518",
+      "source_location": "L512",
       "weight": 1.0
     },
     {
@@ -3475,7 +3535,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L520",
+      "source_location": "L514",
       "weight": 1.0
     },
     {
@@ -3487,7 +3547,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L540",
+      "source_location": "L534",
       "weight": 1.0
     },
     {
@@ -3499,7 +3559,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L551",
+      "source_location": "L545",
       "weight": 1.0
     },
     {
@@ -3511,7 +3571,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L558",
+      "source_location": "L548",
       "weight": 1.0
     },
     {
@@ -3523,7 +3583,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L581",
+      "source_location": "L571",
       "weight": 1.0
     },
     {
@@ -3535,7 +3595,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L680",
+      "source_location": "L670",
       "weight": 1.0
     },
     {
@@ -3547,7 +3607,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L681",
+      "source_location": "L671",
       "weight": 1.0
     },
     {
@@ -3559,7 +3619,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L299",
+      "source_location": "L293",
       "weight": 1.0
     },
     {
@@ -3571,7 +3631,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L300",
+      "source_location": "L294",
       "weight": 1.0
     },
     {
@@ -3583,7 +3643,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L302",
+      "source_location": "L296",
       "weight": 1.0
     },
     {
@@ -3595,7 +3655,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L303",
+      "source_location": "L297",
       "weight": 1.0
     },
     {
@@ -3607,7 +3667,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L304",
+      "source_location": "L298",
       "weight": 1.0
     },
     {
@@ -3619,7 +3679,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L734",
+      "source_location": "L724",
       "weight": 1.0
     },
     {
@@ -3631,7 +3691,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L640",
+      "source_location": "L630",
       "weight": 1.0
     },
     {
@@ -3643,7 +3703,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L641",
+      "source_location": "L631",
       "weight": 1.0
     },
     {
@@ -3655,7 +3715,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L956",
+      "source_location": "L952",
       "weight": 1.0
     },
     {
@@ -3667,7 +3727,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L960",
+      "source_location": "L957",
       "weight": 1.0
     },
     {
@@ -3679,7 +3739,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L863",
+      "source_location": "L853",
       "weight": 1.0
     },
     {
@@ -3691,7 +3751,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L869",
+      "source_location": "L859",
       "weight": 1.0
     },
     {
@@ -3703,7 +3763,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L871",
+      "source_location": "L861",
       "weight": 1.0
     },
     {
@@ -3715,7 +3775,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L896",
+      "source_location": "L886",
       "weight": 1.0
     },
     {
@@ -3727,7 +3787,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L649",
+      "source_location": "L639",
       "weight": 1.0
     },
     {
@@ -3739,7 +3799,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L654",
+      "source_location": "L644",
       "weight": 1.0
     },
     {
@@ -3751,7 +3811,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L655",
+      "source_location": "L645",
       "weight": 1.0
     },
     {
@@ -3763,7 +3823,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L323",
+      "source_location": "L317",
       "weight": 1.0
     },
     {
@@ -3775,7 +3835,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L329",
+      "source_location": "L323",
       "weight": 1.0
     },
     {
@@ -3787,7 +3847,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L309",
+      "source_location": "L303",
       "weight": 1.0
     },
     {
@@ -3799,7 +3859,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L776",
+      "source_location": "L766",
       "weight": 1.0
     },
     {
@@ -3811,7 +3871,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L796",
+      "source_location": "L786",
       "weight": 1.0
     },
     {
@@ -3823,7 +3883,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L799",
+      "source_location": "L789",
       "weight": 1.0
     },
     {
@@ -3835,7 +3895,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L800",
+      "source_location": "L790",
       "weight": 1.0
     },
     {
@@ -3847,7 +3907,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L704",
+      "source_location": "L694",
       "weight": 1.0
     },
     {
@@ -3859,7 +3919,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L706",
+      "source_location": "L696",
       "weight": 1.0
     },
     {
@@ -3871,7 +3931,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L707",
+      "source_location": "L697",
       "weight": 1.0
     },
     {
@@ -3883,7 +3943,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L600",
+      "source_location": "L590",
       "weight": 1.0
     },
     {
@@ -3895,7 +3955,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L605",
+      "source_location": "L595",
       "weight": 1.0
     },
     {
@@ -3907,7 +3967,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L443",
+      "source_location": "L437",
       "weight": 1.0
     },
     {
@@ -3919,7 +3979,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L444",
+      "source_location": "L438",
       "weight": 1.0
     },
     {
@@ -3931,7 +3991,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L621",
+      "source_location": "L611",
       "weight": 1.0
     },
     {
@@ -3943,7 +4003,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L622",
+      "source_location": "L612",
       "weight": 1.0
     },
     {
@@ -3955,7 +4015,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L748",
+      "source_location": "L738",
       "weight": 1.0
     },
     {
@@ -3967,7 +4027,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L752",
+      "source_location": "L742",
       "weight": 1.0
     },
     {
@@ -3979,7 +4039,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L762",
+      "source_location": "L752",
       "weight": 1.0
     },
     {
@@ -3991,7 +4051,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L767",
+      "source_location": "L757",
       "weight": 1.0
     },
     {
@@ -4003,7 +4063,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L808",
+      "source_location": "L798",
       "weight": 1.0
     },
     {
@@ -4015,7 +4075,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L841",
+      "source_location": "L831",
       "weight": 1.0
     },
     {
@@ -4080,7 +4140,7 @@
     },
     {
       "source": "src_main_renderroute",
-      "target": "src_main_gameview_destroy",
+      "target": "src_main_getroute",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4092,14 +4152,14 @@
     },
     {
       "source": "src_main_renderroute",
-      "target": "src_main_getroute",
+      "target": "src_main_gameview_destroy",
       "relation": "calls",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L232",
+      "source_location": "L231",
       "weight": 1.0
     },
     {
@@ -4236,7 +4296,7 @@
     },
     {
       "source": "realtime_src_main_matchstate",
-      "target": "ball",
+      "target": "realtime_src_main_ball",
       "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4388,54 +4448,6 @@
       "context": "field",
       "source_file": "realtime/src/main.rs",
       "source_location": "L163",
-      "weight": 1.0
-    },
-    {
-      "source": "src_main_gameview",
-      "target": "src_engine_gameengine",
-      "relation": "references",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "field",
-      "source_file": "src/main.ts",
-      "source_location": "L267",
-      "weight": 1.0
-    },
-    {
-      "source": "src_main_gameview",
-      "target": "src_engine_inputframe",
-      "relation": "references",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "field",
-      "source_file": "src/main.ts",
-      "source_location": "L271",
-      "weight": 1.0
-    },
-    {
-      "source": "src_main_gameview",
-      "target": "src_engine_phase",
-      "relation": "references",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "field",
-      "source_file": "src/main.ts",
-      "source_location": "L277",
-      "weight": 1.0
-    },
-    {
-      "source": "src_main_gameview",
-      "target": "src_engine_serializedmatch",
-      "relation": "references",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "field",
-      "source_file": "src/main.ts",
-      "source_location": "L283",
       "weight": 1.0
     },
     {
@@ -4728,7 +4740,7 @@
     },
     {
       "source": "realtime_src_main_matchstate",
-      "target": "player",
+      "target": "realtime_src_main_player",
       "relation": "references",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -5471,18 +5483,6 @@
       "weight": 1.0
     },
     {
-      "source": "src_main_gameview_seeddemo",
-      "target": "src_engine_gameengine",
-      "relation": "references",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "parameter_type",
-      "source_file": "src/main.ts",
-      "source_location": "L340",
-      "weight": 1.0
-    },
-    {
       "source": "realtime_src_main_appstate_open",
       "target": "result",
       "relation": "references",
@@ -5660,30 +5660,6 @@
       "context": "return_type",
       "source_file": "realtime/src/main.rs",
       "source_location": "L1038",
-      "weight": 1.0
-    },
-    {
-      "source": "src_main_gameview_loadengine",
-      "target": "src_engine_gameengine",
-      "relation": "references",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "return_type",
-      "source_file": "src/main.ts",
-      "source_location": "L317",
-      "weight": 1.0
-    },
-    {
-      "source": "src_main_gameview_nextrule",
-      "target": "src_engine_rule",
-      "relation": "references",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "return_type",
-      "source_file": "src/main.ts",
-      "source_location": "L847",
       "weight": 1.0
     },
     {
@@ -5936,7 +5912,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "realtime/src/main.rs",
-      "source_location": "L1043",
+      "source_location": "L1044",
       "weight": 1.0
     },
     {
@@ -5958,29 +5934,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "realtime/src/main.rs",
-      "source_location": "L1072",
-      "weight": 1.0
-    },
-    {
-      "source": "realtime_src_main",
-      "target": "realtime_src_main_online_match_uses_a_four_minute_clock",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "realtime/src/main.rs",
-      "source_location": "L1119",
-      "weight": 1.0
-    },
-    {
-      "source": "realtime_src_main",
-      "target": "realtime_src_main_health_checks_sqlite",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "realtime/src/main.rs",
-      "source_location": "L1127",
+      "source_location": "L1125",
       "weight": 1.0
     },
     {
@@ -5996,13 +5950,35 @@
     },
     {
       "source": "realtime_src_main",
+      "target": "realtime_src_main_online_match_uses_a_four_minute_clock",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "realtime/src/main.rs",
+      "source_location": "L1173",
+      "weight": 1.0
+    },
+    {
+      "source": "realtime_src_main",
+      "target": "realtime_src_main_health_checks_sqlite",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "realtime/src/main.rs",
+      "source_location": "L1182",
+      "weight": 1.0
+    },
+    {
+      "source": "realtime_src_main",
       "target": "realtime_src_main_rate_limit_returns_429_with_retry_after",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "realtime/src/main.rs",
-      "source_location": "L1134",
+      "source_location": "L1190",
       "weight": 1.0
     },
     {
@@ -6585,7 +6561,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/main.ts",
-      "source_location": "L264",
+      "source_location": "L258",
       "weight": 1.0
     },
     {
@@ -7168,7 +7144,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/main.ts",
-      "source_location": "L294",
+      "source_location": "L288",
       "weight": 1.0
     },
     {
@@ -7179,7 +7155,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/main.ts",
-      "source_location": "L307",
+      "source_location": "L301",
       "weight": 1.0
     },
     {
@@ -7190,7 +7166,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/main.ts",
-      "source_location": "L313",
+      "source_location": "L307",
       "weight": 1.0
     },
     {
@@ -7201,7 +7177,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/main.ts",
-      "source_location": "L317",
+      "source_location": "L311",
       "weight": 1.0
     },
     {
@@ -7212,7 +7188,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/main.ts",
-      "source_location": "L335",
+      "source_location": "L329",
       "weight": 1.0
     },
     {
@@ -7223,7 +7199,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/main.ts",
-      "source_location": "L340",
+      "source_location": "L334",
       "weight": 1.0
     },
     {
@@ -7234,7 +7210,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/main.ts",
-      "source_location": "L355",
+      "source_location": "L349",
       "weight": 1.0
     },
     {
@@ -7245,7 +7221,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/main.ts",
-      "source_location": "L447",
+      "source_location": "L441",
       "weight": 1.0
     },
     {
@@ -7256,7 +7232,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/main.ts",
-      "source_location": "L590",
+      "source_location": "L580",
       "weight": 1.0
     },
     {
@@ -7267,7 +7243,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/main.ts",
-      "source_location": "L592",
+      "source_location": "L582",
       "weight": 1.0
     },
     {
@@ -7278,7 +7254,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/main.ts",
-      "source_location": "L611",
+      "source_location": "L601",
       "weight": 1.0
     },
     {
@@ -7289,7 +7265,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/main.ts",
-      "source_location": "L615",
+      "source_location": "L605",
       "weight": 1.0
     },
     {
@@ -7300,7 +7276,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/main.ts",
-      "source_location": "L620",
+      "source_location": "L610",
       "weight": 1.0
     },
     {
@@ -7311,7 +7287,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/main.ts",
-      "source_location": "L639",
+      "source_location": "L629",
       "weight": 1.0
     },
     {
@@ -7322,7 +7298,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/main.ts",
-      "source_location": "L644",
+      "source_location": "L634",
       "weight": 1.0
     },
     {
@@ -7333,7 +7309,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/main.ts",
-      "source_location": "L658",
+      "source_location": "L648",
       "weight": 1.0
     },
     {
@@ -7344,7 +7320,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/main.ts",
-      "source_location": "L684",
+      "source_location": "L674",
       "weight": 1.0
     },
     {
@@ -7355,7 +7331,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/main.ts",
-      "source_location": "L716",
+      "source_location": "L706",
       "weight": 1.0
     },
     {
@@ -7366,7 +7342,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/main.ts",
-      "source_location": "L724",
+      "source_location": "L714",
       "weight": 1.0
     },
     {
@@ -7377,7 +7353,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/main.ts",
-      "source_location": "L729",
+      "source_location": "L719",
       "weight": 1.0
     },
     {
@@ -7388,7 +7364,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/main.ts",
-      "source_location": "L740",
+      "source_location": "L730",
       "weight": 1.0
     },
     {
@@ -7399,7 +7375,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/main.ts",
-      "source_location": "L755",
+      "source_location": "L745",
       "weight": 1.0
     },
     {
@@ -7410,7 +7386,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/main.ts",
-      "source_location": "L760",
+      "source_location": "L750",
       "weight": 1.0
     },
     {
@@ -7421,7 +7397,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/main.ts",
-      "source_location": "L770",
+      "source_location": "L760",
       "weight": 1.0
     },
     {
@@ -7432,7 +7408,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/main.ts",
-      "source_location": "L804",
+      "source_location": "L794",
       "weight": 1.0
     },
     {
@@ -7443,7 +7419,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/main.ts",
-      "source_location": "L847",
+      "source_location": "L837",
       "weight": 1.0
     },
     {
@@ -7454,7 +7430,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/main.ts",
-      "source_location": "L851",
+      "source_location": "L841",
       "weight": 1.0
     },
     {
@@ -7465,7 +7441,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/main.ts",
-      "source_location": "L878",
+      "source_location": "L868",
       "weight": 1.0
     },
     {
@@ -7476,7 +7452,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/main.ts",
-      "source_location": "L913",
+      "source_location": "L903",
       "weight": 1.0
     },
     {
@@ -7487,7 +7463,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/main.ts",
-      "source_location": "L924",
+      "source_location": "L914",
       "weight": 1.0
     },
     {
@@ -7498,7 +7474,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/main.ts",
-      "source_location": "L946",
+      "source_location": "L936",
       "weight": 1.0
     },
     {
@@ -7509,7 +7485,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/main.ts",
-      "source_location": "L953",
+      "source_location": "L943",
       "weight": 1.0
     },
     {
@@ -7521,7 +7497,7 @@
       "confidence_score": 0.8,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L495",
+      "source_location": "L489",
       "weight": 1.0
     },
     {
@@ -7533,7 +7509,7 @@
       "confidence_score": 0.8,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L544",
+      "source_location": "L538",
       "weight": 1.0
     },
     {
@@ -7545,7 +7521,7 @@
       "confidence_score": 0.8,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L561",
+      "source_location": "L551",
       "weight": 1.0
     },
     {
@@ -7557,7 +7533,7 @@
       "confidence_score": 0.8,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L325",
+      "source_location": "L319",
       "weight": 1.0
     },
     {
@@ -7569,7 +7545,7 @@
       "confidence_score": 0.8,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L326",
+      "source_location": "L320",
       "weight": 1.0
     },
     {
@@ -7581,7 +7557,7 @@
       "confidence_score": 0.8,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L788",
+      "source_location": "L778",
       "weight": 1.0
     },
     {
@@ -7593,7 +7569,7 @@
       "confidence_score": 0.8,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L697",
+      "source_location": "L687",
       "weight": 1.0
     },
     {
@@ -7605,7 +7581,7 @@
       "confidence_score": 0.8,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L337",
+      "source_location": "L331",
       "weight": 1.0
     },
     {
@@ -7617,7 +7593,7 @@
       "confidence_score": 0.8,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L765",
+      "source_location": "L755",
       "weight": 1.0
     },
     {
@@ -7629,10 +7605,10 @@
       "confidence_score": 0.8,
       "context": "call",
       "source_file": "src/main.ts",
-      "source_location": "L766",
+      "source_location": "L756",
       "weight": 1.0
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "24c74c24b4e077a07729a930e410d0e64225e95e"
+  "built_at_commit": "8e0039ba0cd367d53b061b8675e03ff7e66f04ab"
 }

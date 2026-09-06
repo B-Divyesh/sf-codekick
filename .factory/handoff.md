@@ -101,10 +101,35 @@ screenshots, `codekick-live-fps.json`, and `codekick-lighthouse.json` under
 - The realtime app has one healthy active revision, 100% traffic, min/max one
   replica, and HTTP startup, readiness, and liveness probes on `/health`.
 
-## Known gaps
+## Independent verification 2 — 2026-09-06
 
-No acceptance gap remains from verification 1. Codekick intentionally has no
-public queue, accounts, leagues, licensed teams, payment, analytics, or offline
-claim. The researched release is free, so there is no billing offer to
-register. Room access is anonymous and lasts six hours; it is not an account or
-long-term match archive.
+Verdict: **FAIL** with 4 findings and 1 untested public claim. See
+`.factory/verification-2.md` for the full evidence.
+
+The implementation candidate remains
+`9516c9ec25c53c6deaf93767ef166e3be7fda953`; documentation before this report
+is `903bbe990e8d7b6cc76bae94abe651c336c08e14`. The later repository head only
+changes pre-existing Graphify output. The live static files match the clean
+candidate build byte for byte.
+
+Independent checks confirmed the repaired room-code job with two live clients,
+synchronized movement, reconnect, a product-service restart with the same room
+still joinable, SQLite health, and live 429 responses with `Retry-After: 60`.
+All 27 declared claim commands returned zero. The full suite passed 4 engine,
+5 server, and 51 browser checks with 3 expected profile skips. Build, URL
+verification, 100/100/100/100 Lighthouse scores, and a 60.00 fps live phone
+profile also passed.
+
+Acceptance remains blocked by these findings:
+
+1. **Medium:** Start for real recreates `demo:codekick:match` during route
+   teardown instead of discarding demo state.
+2. **Medium:** the six-hour expiry part of `room-persistence` is not tested as
+   an outcome; only its future timestamp is asserted.
+3. **Low:** `/demo` has one moderate axe violation because its complementary
+   `aside` is nested inside `main`.
+4. **Low:** four server claim tests lack the required `@claim:<id>` tags.
+
+Codekick intentionally has no public queue, accounts, leagues, licensed teams,
+payment, analytics, or offline claim. No product code was changed during
+verification 2.

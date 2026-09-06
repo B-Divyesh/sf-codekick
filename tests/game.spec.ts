@@ -389,6 +389,37 @@ test('reported accessibility regressions stay fixed at narrow widths and 200% te
   }
 });
 
+test('phone links meet the 44 pixel touch target across public and 404 pages', async ({ page }) => {
+  const expectTouchTarget = async (locator: ReturnType<typeof page.locator>) => {
+    const box = await locator.boundingBox();
+    expect(box).not.toBeNull();
+    expect(box?.width).toBeGreaterThanOrEqual(44);
+    expect(box?.height).toBeGreaterThanOrEqual(44);
+  };
+
+  await page.setViewportSize({ width: 393, height: 727 });
+  await page.goto('/');
+  await expectTouchTarget(page.locator('.site-header .wordmark'));
+  for (const link of await page.getByRole('navigation', { name: 'Primary navigation' }).getByRole('link').all()) {
+    await expectTouchTarget(link);
+  }
+  for (const link of await page.getByRole('navigation', { name: 'Footer navigation' }).getByRole('link').all()) {
+    await expectTouchTarget(link);
+  }
+
+  await page.goto('/privacy');
+  await expectTouchTarget(page.getByRole('link', { name: 'privacy@sociobot.in' }));
+
+  await page.goto('/404.html');
+  await expectTouchTarget(page.locator('header .wordmark'));
+  for (const link of await page.getByRole('navigation', { name: 'Primary navigation' }).getByRole('link').all()) {
+    await expectTouchTarget(link);
+  }
+  for (const link of await page.getByRole('navigation', { name: 'Footer navigation' }).getByRole('link').all()) {
+    await expectTouchTarget(link);
+  }
+});
+
 test('the privacy page provides an actionable request address', async ({ page }) => {
   await page.goto('/privacy');
   await expect(page.getByRole('link', { name: 'privacy@sociobot.in' })).toHaveAttribute('href', /^mailto:privacy@sociobot\.in/);

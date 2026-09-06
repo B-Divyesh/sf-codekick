@@ -197,7 +197,7 @@ function privacyPage(): string {
       <section><h2>What is stored</h2><p>The browser stores settings, an unfinished local match, and active room access. Demo keys begin with <code>demo:codekick:</code>.</p><p>The Codekick room service stores room state in SQLite for six hours so players can reconnect.</p></section>
       <section><h2>What is sent</h2><p>Creating or joining a room sends its code, player controls, and match state to the Codekick room service.</p><p>The game loads no remote fonts, third-party game assets, analytics, or ads.</p></section>
       <section><h2>Delete local data</h2><p>Use Reset demo while in the sample. Clear this site’s browser storage to remove settings, matches, and room access.</p></section>
-      <section><h2>Contact</h2><p>Email <a href="mailto:privacy@sociobot.in?subject=Codekick%20privacy%20request">privacy@sociobot.in</a> to ask about Codekick data.</p></section>
+      <section><h2>Contact</h2><p>Email <a class="touch-link" href="mailto:privacy@sociobot.in?subject=Codekick%20privacy%20request">privacy@sociobot.in</a> to ask about Codekick data.</p></section>
     </article>
   `);
 }

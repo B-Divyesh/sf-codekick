@@ -31,6 +31,7 @@ a:hover { color: var(--sun-light); }
 
 .site-header, main, .site-footer { width: min(1120px, calc(100% - 32px)); margin-inline: auto; }
 .site-header { min-height: 76px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem 1rem; padding-block: .5rem; border-bottom: 1px solid rgba(134, 170, 155, .48); }
+.wordmark, .site-header nav a, .site-footer nav a, .touch-link { display: inline-flex; align-items: center; min-inline-size: 44px; min-block-size: 44px; }
 .wordmark { color: var(--ink); font-weight: 900; letter-spacing: -.04em; font-size: 1.32rem; text-decoration: none; }
 .wordmark span { color: var(--sun); font-size: .8em; }
 nav { display: flex; flex-wrap: wrap; gap: 1rem; }

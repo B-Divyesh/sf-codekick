@@ -6,6 +6,7 @@ footer { border-top: 1px solid #86aa9b; border-bottom: 0; color: #c7d4bf; font-s
 footer p { margin: 0; }
 nav { display: flex; flex-wrap: wrap; gap: 16px; }
 a { color: #f7f0dc; text-underline-offset: 3px; }
+.wordmark, header nav a, footer nav a { display: inline-flex; align-items: center; min-inline-size: 44px; min-block-size: 44px; }
 .wordmark { font-size: 22px; font-weight: 900; text-decoration: none; }
 .wordmark span, .code { color: #f05a37; }
 .page { min-height: 58vh; padding: 9vh 0; }

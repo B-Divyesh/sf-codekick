@@ -3,7 +3,10 @@ use std::{
     env,
     net::{IpAddr, SocketAddr},
     path::Path as FilePath,
-    sync::{Arc, Mutex},
+    sync::{
+        Arc, Mutex,
+        atomic::{AtomicBool, Ordering},
+    },
     time::{Duration, Instant, SystemTime, UNIX_EPOCH},
 };
 
@@ -37,6 +40,7 @@ const SLOTS: [&str; 4] = ["sun-1", "tide-1", "sun-2", "tide-2"];
 #[derive(Clone)]
 struct AppState {
     database: Arc<Mutex<Connection>>,
+    persisting: Arc<AtomicBool>,
     rooms: Arc<Mutex<HashMap<String, Room>>>,
     requests: Arc<Mutex<HashMap<IpAddr, VecDeque<Instant>>>>,
     match_seconds: f64,
@@ -510,6 +514,7 @@ impl AppState {
         }
         Ok(Self {
             database: Arc::new(Mutex::new(connection)),
+            persisting: Arc::new(AtomicBool::new(false)),
             rooms: Arc::new(Mutex::new(rooms)),
             requests: Arc::new(Mutex::new(HashMap::new())),
             match_seconds,
@@ -535,6 +540,42 @@ impl AppState {
             )
             .map_err(|error| error.to_string())?;
         Ok(())
+    }
+
+    fn persist_tick(&self, rooms: &[Room], expired: &[String]) -> Result<(), String> {
+        let mut connection = self
+            .database
+            .lock()
+            .map_err(|_| "Room storage lock failed".to_string())?;
+        let transaction = connection
+            .transaction()
+            .map_err(|error| error.to_string())?;
+        {
+            let mut save = transaction
+                .prepare(
+                    "INSERT INTO rooms(code, room_json, expires_at) VALUES(?1, ?2, ?3)
+                     ON CONFLICT(code) DO UPDATE SET room_json=excluded.room_json, expires_at=excluded.expires_at",
+                )
+                .map_err(|error| error.to_string())?;
+            for room in rooms {
+                let payload = PersistedRoom {
+                    state: room.match_state.clone(),
+                    members: room.members.clone(),
+                    updated_at: room.updated_at,
+                    expires_at: room.expires_at,
+                    tick: room.tick,
+                };
+                let json = serde_json::to_string(&payload).map_err(|error| error.to_string())?;
+                save.execute(params![room.code, json, room.expires_at])
+                    .map_err(|error| error.to_string())?;
+            }
+        }
+        for code in expired {
+            transaction
+                .execute("DELETE FROM rooms WHERE code = ?1", [code])
+                .map_err(|error| error.to_string())?;
+        }
+        transaction.commit().map_err(|error| error.to_string())
     }
 
     fn allowed(&self, address: IpAddr) -> bool {
@@ -906,7 +947,7 @@ async fn tick_rooms(state: AppState) {
                         let _ = room.sender.send(snapshot_json(room));
                     }
                 }
-                if persist_counter % 60 == 0 {
+                if persist_counter % 60 == 0 && !room.connected.is_empty() {
                     saves.push(room.clone());
                 }
             }
@@ -914,15 +955,14 @@ async fn tick_rooms(state: AppState) {
                 rooms.remove(code);
             }
         }
-        for room in saves {
-            let _ = state.save_room(&room);
-        }
-        if !expired.is_empty() {
-            if let Ok(connection) = state.database.lock() {
-                for code in expired {
-                    let _ = connection.execute("DELETE FROM rooms WHERE code = ?1", [code]);
-                }
-            }
+        if (!saves.is_empty() || !expired.is_empty())
+            && !state.persisting.swap(true, Ordering::AcqRel)
+        {
+            let writer = state.clone();
+            tokio::task::spawn_blocking(move || {
+                let _ = writer.persist_tick(&saves, &expired);
+                writer.persisting.store(false, Ordering::Release);
+            });
         }
     }
 }
@@ -1026,6 +1066,53 @@ mod tests {
         assert_eq!(restored.tick, 42);
         assert_eq!(restored.members[0].slot, "sun-1");
         assert!(restored.expires_at - unix_time() >= ROOM_TTL_SECONDS - 2);
+    }
+
+    #[tokio::test(flavor = "multi_thread", worker_threads = 2)]
+    async fn active_match_continues_while_storage_is_busy() {
+        let directory = tempfile::tempdir().unwrap();
+        let state = test_state(&directory);
+        let (sender, _) = broadcast::channel(8);
+        let token = "active-player".to_string();
+        let mut match_state = MatchState::new(240.0);
+        match_state.phase = "playing".into();
+        state.rooms.lock().unwrap().insert(
+            "MOVE24".into(),
+            Room {
+                code: "MOVE24".into(),
+                match_state,
+                members: vec![Member {
+                    token: token.clone(),
+                    slot: "sun-1".into(),
+                }],
+                inputs: HashMap::from([(
+                    "sun-1".into(),
+                    PlayerInput {
+                        right: true,
+                        ..PlayerInput::default()
+                    },
+                )]),
+                connected: HashMap::from([(token, 1)]),
+                updated_at: unix_time(),
+                expires_at: unix_time() + ROOM_TTL_SECONDS,
+                tick: 0,
+                sender,
+            },
+        );
+
+        let database = state.database.clone();
+        let storage_guard = database.lock().unwrap();
+        let simulation = tokio::spawn(tick_rooms(state.clone()));
+        time::sleep(Duration::from_millis(1_400)).await;
+        {
+            let rooms = state.rooms.lock().unwrap();
+            let room = rooms.get("MOVE24").unwrap();
+            assert!(room.tick >= 75, "storage delayed the simulation tick");
+            assert!(room.match_state.players[0].x > 500.0);
+        }
+        simulation.abort();
+        drop(storage_guard);
+        time::sleep(Duration::from_millis(20)).await;
     }
 
     #[test]

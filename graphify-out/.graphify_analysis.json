@@ -194,13 +194,13 @@
       "degree": 8
     },
     {
-      "id": "src_engine_clamp",
-      "label": "clamp()",
+      "id": "src_main_pageshell",
+      "label": "pageShell()",
       "degree": 6
     },
     {
-      "id": "src_main_pageshell",
-      "label": "pageShell()",
+      "id": "src_engine_clamp",
+      "label": "clamp()",
       "degree": 6
     },
     {
@@ -222,7 +222,7 @@
   "surprises": [
     {
       "source": "GameView",
-      "target": "Phase",
+      "target": "InputFrame",
       "source_files": [
         "src/main.ts",
         "src/engine.ts"
@@ -233,7 +233,7 @@
     },
     {
       "source": "GameView",
-      "target": "InputFrame",
+      "target": "Phase",
       "source_files": [
         "src/main.ts",
         "src/engine.ts"

@@ -329,8 +329,8 @@
       "degree": 12
     },
     {
-      "id": "realtime_src_main_unix_time",
-      "label": "unix_time()",
+      "id": "src_main_renderroute",
+      "label": "renderRoute()",
       "degree": 10
     },
     {
@@ -341,30 +341,52 @@
   ],
   "surprises": [
     {
-      "source": "AppState",
-      "target": "HashMap",
+      "source": "active_match_continues_while_storage_is_busy()",
+      "target": "test_state()",
       "source_files": [
         "realtime/src/main.rs",
-        ""
+        "realtime/src/main.rs"
       ],
       "confidence": "EXTRACTED",
-      "relation": "references",
-      "note": "Bridges community 7 \u2192 community 8"
+      "relation": "calls",
+      "note": "Bridges community 5 \u2192 community 6"
     },
     {
-      "source": "starting_players()",
-      "target": "Vec",
+      "source": "apply_client_message()",
+      "target": "AppState",
       "source_files": [
         "realtime/src/main.rs",
-        ""
+        "realtime/src/main.rs"
       ],
       "confidence": "EXTRACTED",
       "relation": "references",
-      "note": "Bridges community 7 \u2192 community 5"
+      "note": "Bridges community 5 \u2192 community 8"
     },
     {
       "source": "connect_room()",
-      "target": "Response",
+      "target": "handle_socket()",
+      "source_files": [
+        "realtime/src/main.rs",
+        "realtime/src/main.rs"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "note": "Bridges community 5 \u2192 community 9"
+    },
+    {
+      "source": "MatchState",
+      "target": "Player",
+      "source_files": [
+        "realtime/src/main.rs",
+        "realtime/src/main.rs"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "note": "Bridges community 5 \u2192 community 7"
+    },
+    {
+      "source": "connect_room()",
+      "target": "Path",
       "source_files": [
         "realtime/src/main.rs",
         ""
@@ -372,28 +394,6 @@
       "confidence": "EXTRACTED",
       "relation": "references",
       "note": "Bridges community 6 \u2192 community 9"
-    },
-    {
-      "source": "AppState",
-      "target": "String",
-      "source_files": [
-        "realtime/src/main.rs",
-        ""
-      ],
-      "confidence": "EXTRACTED",
-      "relation": "references",
-      "note": "Bridges community 9 \u2192 community 8"
-    },
-    {
-      "source": "handle_socket()",
-      "target": "String",
-      "source_files": [
-        "realtime/src/main.rs",
-        ""
-      ],
-      "confidence": "EXTRACTED",
-      "relation": "references",
-      "note": "Bridges community 9 \u2192 community 5"
     }
   ],
   "tokens": {

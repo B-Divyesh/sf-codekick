@@ -1,44 +1,43 @@
-# Codekick verification 4 handoff
+# Review private 2v2 football matches — Codekick review 2 handoff
 
 ## Result
 
 **PASS — 0 findings and 0 untested public claims.**
 
 Codekick is a free four-minute private 2v2 browser football match for two to
-four friends. A host shares a six-character room code. Friends play from their
-keyboard or phone without an account or download.
+four friends. A host shares a six-character room code. Friends play by keyboard
+or phone without an account or download.
 
 - Implementation reviewed: `480267d62cce50848043d7e0edc7676b834cf996`.
-- Documentation baseline: `7eb6ad7f11b9ba60936eb7ce498d1cfe6355cfe0`.
+- Documentation baseline: `7222801804e038fcd5146222436afc47646f0a8f`.
 - Live URL: <https://codekick.sociobot.in>.
-- Full report: `.factory/verification-4.md`.
+- Full report: `.factory/review-2.md`.
 
 The live HTML, JavaScript, and CSS are byte-identical to the clean production
-build at the implementation SHA. Later repository commits are report-only or
-Graphify output and do not require a new product image.
+build at the implementation candidate. Later commits change only reports or
+Graphify output.
 
-## Verification completed
+## Review completed
 
-- Installed documented prerequisites in a detached clean checkout and ran all
-  27 declared claim commands separately. Every command passed and every claim
-  has exactly one matching tag.
-- `npm test` passed 4 engine, 5 Rust/SQLite, and 53 browser checks, with 3
-  expected profile skips. `npm run build` produced `dist/`.
-- Opened fresh desktop and Pixel 5 live contexts. Both show the game on the
-  first screen and state the job, audience, and sample action before scrolling.
-- Played the live 28-second sample through its natural **Sun wins** end screen,
-  reset it, left the demo, and proved demo keys were removed while normal data
-  remained unchanged.
-- Used four independent live room clients, observed shared authoritative
-  movement, reconnected the host, rejected a fifth player, and confirmed that
-  a token for one room receives no state from another room.
-- Live health returned SQLite status. A clean live allowance window accepted
-  12 room requests and returned 429 with `Retry-After: 60` on request 13.
-- Fresh live Axe found zero violations on all five public routes. Keyboard
-  focus, reduced motion, 200% text, privacy contact, invalid states, designed
-  HTTP 404, and all repaired 44 px phone link targets pass.
-- Live Pixel 5 rendering measured 60.01 fps. Mobile Lighthouse scored 100 in
-  performance, accessibility, best practices, and SEO; LCP was 1.0 s and CLS
+- Ran all 27 declared claim commands separately in a detached clean checkout.
+  Every command passed and every claim ID has exactly one tag.
+- `npm test` passed 4 engine tests, 5 Rust/SQLite tests, and 53 browser checks,
+  with 3 intended profile skips. `npm run build` produced `dist/`.
+- Opened fresh live desktop and Pixel 5 contexts. Both show the game, job,
+  audience, and sample action before scrolling.
+- Played the sample through its natural 0:00 **Sun wins** screen, reset it,
+  left demo, and proved demo keys were removed while normal data stayed fixed.
+- Used four independent live clients, observed shared authoritative movement,
+  reconnected the host, rejected a fifth player, and rejected a room token used
+  against another room.
+- Fresh backend checks proved SQLite restart/expiry outcomes. Live health
+  returned SQLite status. Twelve room creates succeeded before request 13
+  returned 429 with `Retry-After: 60`.
+- Fresh live Axe found zero violations on all routes and the designed 404.
+  Keyboard focus, Back/Forward focus, reduced motion, 200% text, privacy
+  contact, invalid/recovery states, and 73 phone touch targets passed.
+- Live Pixel 5 rendering measured 60.003 fps. Mobile Lighthouse scored 100 in
+  performance, accessibility, best practices, and SEO; LCP was 967 ms and CLS
   was 0.
 
 ## Run again
@@ -52,12 +51,12 @@ npm run verify:url -- http://127.0.0.1:4173
 npm run verify:url -- https://codekick.sociobot.in
 ```
 
-The claim commands are listed in `.factory/claims.json`. Verification evidence
-is under `/work/.evidence/codekick-verify-4/`.
+The separate claim commands are listed in `.factory/claims.json`. Review
+evidence is under `/work/.evidence/codekick-review-2/`.
 
 ## Known gaps and next steps
 
 No product gap or untested public claim was found. No product code, service,
-deployment, infrastructure, or data was changed. The pre-existing modified
-`graphify-out/` files remain untouched and must not be included in the report
-commit.
+deployment, infrastructure, or product data was changed. The pre-existing
+modified `graphify-out/` files remain untouched and must not be included in the
+report commit.

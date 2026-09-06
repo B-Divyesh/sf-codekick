@@ -1,150 +1,115 @@
-# Codekick review 1 handoff
-
-## Strict review result
-
-Review 1 checked implementation
-`3d94125d9157cd4b96cdb37fd1d012079c25027e`, documentation baseline
-`7e0bb9273fe66c8c092ee9c6261c8ab2d5a0ee57`, and the byte-identical live
-release.
-
-**FAIL — 1 medium finding and 0 untested public claims.**
-
-- The remaining finding is that several phone links do not meet the required
-  44 × 44 px touch target: the header wordmark, footer Privacy and Terms links,
-  and the privacy request email link.
-- All 27 declared claim commands passed separately from a clean clone. The
-  full suite passed 4 engine, 5 Rust, and 51 browser checks with 3 expected
-  profile skips. The clean build and both URL verifier runs passed.
-- A fresh timed sample reached **Sun wins** without its finish shortcut. Reset
-  and Start for real proved demo cleanup and normal-data isolation.
-- Fresh live independent clients proved 4-player room play, shared movement,
-  reconnect, capacity, and cross-room isolation. A pre-restart room survived
-  restart of only the active Codekick realtime revision. Health and the clean
-  12-request allowance followed by 429 with `Retry-After: 60` passed.
-- Axe found zero violations on every public route. The manual touch-target
-  measurement is the one remaining accessibility failure.
-- Live Lighthouse scored 100 in all four categories. The phone game measured
-  60.003 fps.
-
-The detailed report is `.factory/review-1.md`. Evidence is under
-`/work/.evidence/codekick-review-1/`. No product code was changed. The existing
-Graphify worktree changes remain untouched and excluded from the report commit.
-
----
-
-# Codekick verification 3 handoff
-
-## Independent verification
-
-Verification 3 reviewed implementation `3d94125d9157cd4b96cdb37fd1d012079c25027e` and documentation `7b9de66c73d03c6c77d41529ec87c971db9e89de`. The later `8e0039b` wrapper changes only factory/Graphify output, not product code.
-
-**PASS — 0 findings and 0 untested public claims.**
-
-- A fresh clean checkout passed `npm ci`, all 27 declared claim commands, `npm test` (60 passed, 3 expected browser-profile skips), `npm run build`, and `npm run verify:url` locally and live.
-- The live static HTML, JS, and CSS match the clean production build byte-for-byte.
-- Fresh desktop and phone profiles show the playable field before scrolling. A timed `/demo` run entered active play and reached **Sun wins** at the real 28-second end screen. Reset restored the sample; Start for real removed demo keys and preserved normal data.
-- Live multiplayer browser clients joined a private six-character room, reconnected after reload, and independent authoritative WebSocket clients observed the same movement. A token was rejected for a different valid room.
-- The clean SQLite restart/expiry claim passed. Live health returned SQLite healthy. A clean-window live keep-alive sequence allowed 12 room creates, then returned 429 with `Retry-After: 60`.
-- Axe found zero violations on every public route. Live Lighthouse scored 100 performance, 100 accessibility, 100 best practices, and 100 SEO; the Pixel 5 profile measured 60.01 fps.
-
-The detailed report is `.factory/verification-3.md`. No product-code changes were made by this verifier. Graphify worktree changes remain untouched.
-
----
-
-# Codekick repair 2 handoff
+# Codekick repair 3 handoff
 
 ## Product and release
 
-Codekick is a free four-minute 2v2 browser football match for two to four
-friends. One player creates a private room and shares its six-character code.
-Friends play from independent laptop or phone browsers without accounts or
-downloads. The first action is **Try it with sample data**, which starts an
-isolated 28-second match.
+Codekick is a free four-minute, private 2v2 browser football match for two to
+four friends. A host shares a six-character room code; friends play on their
+own keyboard or phone browser without an account or download.
 
-- Implementation SHA: `3d94125d9157cd4b96cdb37fd1d012079c25027e`.
-- The production static bundle was built from that clean commit and deployed
-  to `sf-codekick` on 2026-09-06 UTC.
-- The documentation SHA is the commit containing this handoff. No product-code
-  commit follows the implementation SHA above.
-- The realtime image did not change. Its expiry implementation already worked;
-  this repair adds the missing outcome coverage and claim tags.
+- Implementation SHA: `480267d` (`Fix phone link touch targets`).
+- Static release: `sf-codekick` was deployed from that commit to
+  <https://codekick.sociobot.in> on 2026-09-06 UTC.
+- Realtime service: unchanged. It remains the single-replica,
+  product-owned SQLite service on its durable `/data` mount.
+- The researched brief specifies a free product. There is no paid offer or
+  billing dependency.
 
-## Repair 2 findings
+## Repair completed
 
-| Finding | Disposition |
+Review 1 finding F1 is resolved at the shared link-style boundary.
+
+- The wordmark, every primary and footer navigation link, and the privacy
+  request link now use a 44 by 44 CSS-pixel minimum interactive area.
+- The standalone styled 404 page uses the same rule for its wordmark and
+  navigation links.
+- The privacy address keeps its direct `mailto:` action and remains visible as
+  text; no privacy behavior changed.
+- The browser regression checks rendered bounding boxes on a 393 by 727 phone
+  viewport. It covers header navigation, footer navigation, the privacy email,
+  and the static 404 page. This is an outcome check, not a source-text check.
+
+## Verification
+
+### Clean setup and claims
+
+In detached clean worktree `/tmp/codekick-repair-3-clean` at `480267d`:
+
+- `npm ci` completed with zero audit vulnerabilities.
+- All 27 commands declared in `.factory/claims.json` passed independently.
+  The browser claims ran in both desktop and phone projects where applicable;
+  the three intentionally inapplicable profile copies skipped as designed.
+- `npm test` also passed in the main checkout: 4 deterministic engine tests,
+  5 Rust/SQLite service tests, and 56 browser checks with 3 expected profile
+  skips.
+- `npm run build` produced `dist/`: JavaScript is 40.32 KB raw / 12.46 KB gzip
+  and CSS is 12.26 KB raw / 3.52 KB gzip.
+
+### Live HTTPS checks
+
+- The durable static deployment completed successfully and HTTPS returned 200.
+  `npm run verify:url -- https://codekick.sociobot.in` and the worker URL
+  verifier passed title, language, one H1, main landmark, image-alt, and
+  console checks. The live response includes CSP with `frame-ancestors 'none'`,
+  Permissions Policy, nosniff, Referrer Policy, and HSTS.
+- Fresh 1440 by 900 desktop and 393 by 727 Pixel 5 contexts both showed the
+  field before scrolling. They state the job (**Play a private 2v2 football
+  match**), audience (two to four friends without accounts or downloads), and
+  first action (**Try it with sample data**). The pitch starts at 461.5 px on
+  desktop and 539.05 px on phone, inside each initial viewport.
+- The fresh desktop sample started at Sun 2–Tide 1, 0:28, with four populated
+  players and the persistent **Demo — sample data, nothing is saved** label.
+  Keyboard movement and Pass worked; its real timer reached **Sun wins**. Reset
+  restored the 2–1, 0:28 sample. Start for real removed both demo keys,
+  restored a 0–0, 4:00 real match, and left a normal-storage sentinel intact.
+- Fresh live phone target measurements are 114.39 by 44 for the wordmark,
+  44 by 44 for Demo and Terms, 87.42 by 44 for How to play, 53.30 by 44 for
+  primary Privacy, 52.11 by 44 for footer Privacy, and 161.77 by 44 for the
+  privacy request link. The Pixel 5 profile measured 60.00 fps across 120
+  animation frames.
+- Playwright Axe found zero violations on Home, Demo, How to play, Privacy,
+  and Terms. The standalone Axe CLI could not find a compatible system Chrome
+  in this worker, so its failed launch is not classified as a product failure;
+  the project and live Playwright Axe runs use the installed browser instead.
+- The styled unknown route returns the expected HTTP 404. `/404.html` has the
+  correct title and the new link-target sizing. On a fresh live phone at 200%
+  text, document width remained 393 px; Reset demo and Start for real measure
+  59.19 px high.
+
+### Rooms and persistence
+
+- Live health returned `200` with `{"status":"ok","storage":"sqlite"}`.
+- Fresh independent live contexts created and joined a private room. A focused
+  Sun captain sent authoritative right-input frames; the Tide observer saw the
+  Sun position move from x=330 to x=424. A separate fresh four-client run
+  assigned the four distinct roles, rejected a fifth join at capacity, and
+  reconnected the host after reload.
+- The clean `room-persistence` claim reopened SQLite, expired a room, proved
+  its removal from memory and SQLite, rejected a join, and proved absence after
+  another restart. The realtime implementation is unchanged from the latest
+  live restart verification recorded in `.factory/review-1.md`.
+- A live keep-alive request sequence returned HTTP 429 with `Retry-After: 60`.
+  This session had already created rooms for the live multiplayer checks, so
+  the clean twelve-request allowance is evidenced by the independent prior
+  review and the exact clean Rust claim rather than misreported as a fresh
+  allowance measurement here.
+
+Evidence created during this repair is in `/work/.evidence/codekick-repair-3/`.
+The catalog description is copied to `/work/.evidence/catalog-description.txt`.
+
+## Earlier findings
+
+| Finding group | Current disposition |
 | --- | --- |
-| Demo state remains after Start for real | Fixed at the route lifecycle boundary. Leaving `/demo` now destroys the demo game without saving it, then removes both `demo:codekick:*` keys. The claim test asserts both keys are absent and a real-data sentinel is unchanged. |
-| Six-hour expiry is not outcome-tested | Fixed. The restart test now moves a restored room beyond the six-hour boundary, runs the production cleanup loop, proves removal from memory and SQLite, proves join returns 404, and proves another restart cannot restore it. |
-| `/demo` has a moderate axe landmark violation | Fixed. The banner is a named section instead of a complementary landmark nested in `main`. Axe now reports zero violations on every public app route. |
-| Four server claims lack claim tags | Fixed. `online-four-minute`, `room-persistence`, `room-rate-limit`, and `room-health` have explicit `@claim:<id>` annotations on their Rust tests. |
+| Missing room-code multiplayer, player-two touch path, text reflow, and small demo controls | Still resolved; clean claims and fresh live room/phone checks pass. |
+| Missing headers, soft 404, privacy contact, kickoff Pause | Still resolved; live headers, HTTP 404, mail link, and pause claim pass. |
+| Missing public-claim coverage, demo cleanup, expiry outcome, Demo landmark, and server tags | Still resolved; all 27 tagged clean commands pass and live demo cleanup passes. |
+| Review 1 F1, undersized phone links | Resolved by the shared 44-pixel link-target rule and live rendered measurements above. |
 
-All nine findings from verification 1 remain fixed. The full browser suite still
-covers room multiplayer, two-player touch input, 200% text reflow, 44 px demo
-controls, route security and 404 behavior, kickoff pause, and the privacy
-contact path.
+## Known gaps and next steps
 
-## Clean verification
-
-The clean detached worktree was `/tmp/codekick-repair2-Hzrlno` at the
-implementation SHA.
-
-- All 27 commands in `.factory/claims.json` passed separately. Full output:
-  `/work/.evidence/codekick-repair-2/claims-clean.log`.
-- `npm test` passed 4 engine tests, 5 realtime tests, and 51 browser checks.
-  Three intentional profile skips keep phone-only checks in the phone project
-  and the four-client room check in the desktop project.
-- `npm run build` produced `dist/`. JavaScript is 40.30 KB raw / 12.37 KB gzip;
-  CSS is 12.12 KB raw / 3.50 KB gzip. The deployed artifact is 150,391 bytes.
-- `npm run verify:url -- http://127.0.0.1:4173` passed title, language, main
-  landmark, alt text, and console checks.
-- The catalog description is verb-first, 81 characters excluding its newline,
-  and was copied to `/work/.evidence/catalog-description.txt`.
-
-## Live verification
-
-- `npm run verify:url -- https://codekick.sociobot.in` passed. The live HTML
-  and JavaScript SHA-256 hashes match the clean build.
-- Fresh 1440×900 desktop and 393×727 phone profiles showed the field before
-  scrolling. The first screen names the job, audience, and **Try it with sample
-  data** action.
-- The live sample began with four players, Sun 2–Tide 1, 0:28, Crosswind, and
-  the persistent demo label. Keyboard and touch moved players, Pass released
-  the ball, and the timed desktop run ended at **Sun wins**.
-- Reset restored Sun 2–Tide 1 at 0:28. **Start for real** removed both demo
-  keys, returned to a 0–0 real match, and did not change real storage during
-  demo use.
-- Axe reported zero violations on Home, Demo, How to play, Privacy, and Terms.
-  Every route had one H1 and one main landmark. The styled unknown route
-  returned the expected HTTP 404.
-- Two independent live browser contexts joined one room, saw synchronized
-  movement from x=330 to x=424, and the host reconnected after reload.
-- A live room token opened its own WebSocket but was rejected when used with a
-  different room code, confirming room isolation.
-- The realtime health endpoint returned 200 with SQLite status. A live room
-  survived a restart of `sf-codekick-realtime--0000005` and accepted the Tide
-  captain afterward. A persistent request sequence allowed 12 room creates,
-  then returned 429 with `Retry-After: 60`.
-- Realtime deployment settings remained one healthy active revision at 100%
-  traffic, min/max one replica, `/data` mounted, and startup/readiness/liveness
-  probes on `/health`.
-- Live mobile Lighthouse scored 100 performance, 100 accessibility, 100 best
-  practices, and 100 SEO. FCP was 909 ms, LCP 942 ms, TBT 16 ms, CLS 0, and
-  transfer was 18,169 bytes. A fresh phone profile measured 60.00 fps.
-- No unexpected console errors occurred. The sole captured 404 console entry
-  came from the deliberate unknown-route status check and is expected.
-
-Screenshots and machine-readable results are under
-`/work/.evidence/codekick-repair-2/`, including the first screens, active demo,
-timed end screen, independent room clients, browser report, Lighthouse JSON,
-rate-limit result, restart result, clean build log, clean full-test log, and
-all claim-command output.
-
-## Deployment and remaining work
-
-- Static app: `sf-codekick` at <https://codekick.sociobot.in>.
-- Realtime app: `sf-codekick-realtime` at
-  <https://codekick-realtime.sociobot.in>.
-- Realtime state: product-owned SQLite on the existing durable `/data` mount.
-- No billing offer exists; the researched brief specifies a free release.
-- No offline claim is made and no service worker is registered.
-- No known product or verification gaps remain for this repair.
+No product gap is known. Codekick deliberately makes no offline or update
+promise and registers no service worker. The standalone Lighthouse CLI could
+not launch the worker's headless-shell binary; the last independent live review
+recorded 100 in all four Lighthouse categories, and this repair has a passing
+production build, live URL smoke check, live Axe check, and 60 fps phone
+measurement.

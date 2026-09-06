@@ -1,94 +1,110 @@
-# Codekick handoff
+# Codekick repair handoff
 
-## Product
+## Product and release
 
-Codekick is a free local 2v2 arcade football game for friends sharing a browser
-on keyboard or touch. The first action is **Try it with sample data**, which
-opens an isolated 28-second sample match. A normal local match has a four-minute
-clock. The implementation candidate is `9eae4dc973a544781494f98be1211f542ae1a715`.
+Codekick is a free four-minute 2v2 browser football match for two to four
+friends. One person creates a private room, shares its six-character code, and
+each friend plays from a laptop keyboard or phone touch controls. The first
+action is **Try it with sample data**, which starts a separate 28-second match.
+
+- Final implementation SHA: `9516c9ec25c53c6deaf93767ef166e3be7fda953`.
+- The static bundle was deployed from `7ba3056336153dc200ae802021711ec7814f249a`;
+  its frontend files are byte-identical at the final implementation SHA. The
+  later implementation commit changes only realtime persistence scheduling.
+- The realtime image was built from the final implementation SHA.
+- The documentation SHA is the repository commit containing this handoff. No
+  product-code commit follows the implementation SHA above.
 
 ## Delivered
 
-- Vite + TypeScript static game in `dist/`, with a deterministic 60 Hz fixed
-  timestep, Canvas 2D pitch, pause on hidden tabs, clamped frame deltas, goals,
-  a two-second possession combo, end screen, and rematch.
-- Practice-against-bots and local-two-player modes. The rematch cycle exposes
-  Crosswind, Spring turf, and Pinched goals.
-- Keyboard, phone touch controls, pass/shot rebinding, assist mode, persisted
-  settings, and local unfinished-match recovery.
-- `/demo` is a separate `demo:codekick:*` localStorage sandbox with a permanent
-  label, Reset demo, Start for real, and a supplied way to inspect the end
-  screen. It never writes normal `codekick:*` keys.
-- Product-specific printed-pitch artwork and SVG sharing assets, documented in
-  `.factory/design.md`; no third-party art, fonts, scripts, analytics, ads, or
-  account flow.
-- Home, Demo, How to play, Privacy, Terms, and styled 404 routes; per-route
-  titles; metadata; sitemap; robots; security headers; focus handling; and a
-  legal footer.
+- A product-owned Axum WebSocket service creates and joins private rooms for
+  up to four independent clients. It owns the fixed 60 Hz match simulation and
+  sends snapshots for browser interpolation.
+- Rooms survive service restarts in SQLite on the fleet-created durable
+  `/data` mount. SQLite uses dot-file locking for the mounted filesystem, one
+  long-lived connection, and background transactional match snapshots so
+  storage work cannot stop live play.
+- The room service has a health endpoint, six-hour room expiry, per-IP room
+  request limits, `429` responses with `Retry-After: 60`, automatic browser
+  reconnect, and an explicit four-minute server clock.
+- The existing practice and same-device modes remain. Keyboard, two-player
+  touch controls, pass, shot, pause, key remapping, assist mode, reduced
+  motion, recovery, all three stadium rules, end screen, and rematch work.
+- `/demo` remains isolated under `demo:codekick:*`. It has populated 2v2 sample
+  play, a persistent sample label, reset, start-for-real separation, and a
+  supplied end-screen action.
+- Home, Demo, How to play, Privacy, Terms, and the styled 404 have route titles,
+  one H1, focus transfer, keyboard operation, and the standard site structure.
+- Static responses now apply CSP, Permissions Policy, Referrer Policy, and
+  `X-Content-Type-Options`. Unknown routes return the styled page with HTTP
+  404.
+
+## Earlier finding dispositions
+
+| Finding | Disposition |
+| --- | --- |
+| F1 missing room multiplayer | Fixed. Four independent real clients, room capacity, synchronized play, timed end, rematch, reconnect, SQLite restart persistence, health, and rate limiting are covered. |
+| F2 missing player-two touch controls | Fixed. The phone UI has separate 44 px movement, pass, and shoot controls for each local player. |
+| F3 200% text overflow | Fixed. The 320 px / 200% regression check has no horizontal document overflow or clipped navigation. |
+| F4 undersized demo controls | Fixed. Reset and start-for-real controls meet the 44 px touch target. |
+| F5 missing live policies | Fixed. CSP and Permissions Policy are present on the live response; the deployment config ships inside `dist/`. |
+| F6 eight untested claim groups | Fixed. The inventory now has 27 outcome-tested claims, including every previously unlisted group and the online service. |
+| F7 kickoff Pause no-op | Fixed. Pause and resume work during kickoff and active play. |
+| F8 soft 404 | Fixed. An unknown path returns HTTP 404 with the designed Codekick page and return action. |
+| F9 privacy contact not actionable | Fixed. Privacy requests use the direct `mailto:privacy@sociobot.in` link. |
 
 ## Verification
 
-From a clean clone at `/tmp/codekick-clean-K9JbOj`:
+The final clean checkout was `/tmp/codekick-final-q0x2zh` at the implementation
+SHA above.
 
-- `npm ci` passed with zero audit vulnerabilities.
-- `npm run build` passed and produced `dist/`.
-- `npm test` passed: 3 deterministic engine tests and 30 Playwright cases on
-  desktop and Pixel 5 profiles (28 passed; two profile-specific tests are
-  expected skips on desktop). Axe found zero serious or critical violations on `/`, `/demo`,
-  and `/privacy`.
-- Every command in `.factory/claims.json` was run separately from that clean
-  clone and passed. This covers end screen, restart, settings, demo isolation,
-  same-origin demo requests, free local start, four-minute clock, match reload,
-  keyboard, touch, and frame-rate paths.
-- `npm run verify:url -- http://127.0.0.1:4173` passed title, language, main,
-  alt-text, and console checks from the clean clone. The same verification
-  passed against the implementation workspace on port 4174.
-- Fresh Playwright desktop and phone screenshots were inspected. The opening
-  viewport names the job, audience, and first action while showing the live
-  pitch. The demo flow was exercised through populated play, persistent label,
-  reset, start-for-real separation, and final score screen.
-- A fresh Pixel 5 browser-profile measurement sampled 120 animation frames at
-  16.666 ms mean interval: 60.00 fps. The claim test permits 55 fps for normal
-  measurement variance.
-- Production bundle: JavaScript 29.63 KB raw / 9.49 KB gzip; CSS 10.12 KB raw
-  / 3.11 KB gzip.
+- Every one of the 27 commands in `.factory/claims.json` ran separately and
+  passed. Full output is `/work/.evidence/codekick-final-claims.log`.
+- `npm test` passed 4 engine tests, 5 server tests, and 51 browser checks. Three
+  browser cases are intentional profile skips. The run includes four separate
+  room clients, a timed online end screen, reflow at 200%, invalid and damaged
+  state recovery, and axe checks with no serious or critical violations.
+- The storage-busy regression holds the SQLite connection while proving the
+  active match continues beyond 75 ticks and moves the player.
+- `npm run build` produced `dist/`. JavaScript is 40.43 KB raw / 12.44 KB gzip;
+  CSS is 12.12 KB raw / 3.48 KB gzip. The uploaded static artifact is 150,762
+  bytes.
+- `npm run verify:url -- https://codekick.sociobot.in` passed title, language,
+  main landmark, alt text, and console checks.
+- Live mobile Lighthouse scored 100 for performance, accessibility, best
+  practices, and SEO. LCP was 959 ms, CLS 0, and total blocking time 39 ms.
+- A fresh live phone profile measured 120 frames at 60.006 fps.
+- Fresh 1440×900 desktop and 393×727 phone sessions showed the game before
+  scrolling. The job is **Play a private 2v2 football match**; the audience is
+  two to four friends; the first action is **Try it with sample data**.
+- The live sample showed Sun 2–Tide 1, its permanent sample label, reset state,
+  start-for-real separation, and a real result screen.
+- Two independent live clients joined by room code. The Sun player moved from
+  x=330 to x=244 on both clients, and the host reconnected after reload.
+- A live room survived an actual container revision restart and accepted a
+  second player afterward. The final image also returned `429` with
+  `Retry-After: 60` under the documented request boundary.
+- Live `/`, `/demo`, `/privacy`, `/terms`, and `/404.html` return 200. An
+  unknown route returns the designed page with HTTP 404.
 
-## Known gaps and next steps
+Evidence includes `codekick-live-desktop.png`, `codekick-live-phone.png`,
+`codekick-live-demo.png`, `codekick-live-end-screen.png`, the two live-room
+screenshots, `codekick-live-fps.json`, and `codekick-lighthouse.json` under
+`/work/.evidence/`.
 
-The researched product requires remote room-code play with server-authoritative
-state. This work order supplies a static deployment only, and the repository
-has no product-owned realtime deployment configuration. Rather than ship a
-non-working room-code screen, this release is an honest complete local match.
-Remote rooms remain a required next release dependency: deploy
-`sf-codekick-realtime` as a one-replica product-owned service, with durable
-`/data` SQLite state, WebSocket ingress, server-authoritative ticks,
-interpolation, room expiry, health endpoint, and 429/`Retry-After` limits; then
-test two independent clients and restart persistence.
+## Deployment
 
-No paid offer, billing metadata, or checkout is present because the researched
-first release is free.
+- Static app: `sf-codekick` at <https://codekick.sociobot.in>.
+- Realtime app: `sf-codekick-realtime` at
+  <https://codekick-realtime.sociobot.in>.
+- Realtime state: `sf-codekick-realtime-data`, mounted at `/data`.
+- The realtime app has one healthy active revision, 100% traffic, min/max one
+  replica, and HTTP startup, readiness, and liveness probes on `/health`.
 
-At handoff, `curl https://codekick.sociobot.in/` could not resolve the product
-host in this worker. The static deployment must be triggered by the factory
-deployment path after the final push, then checked cold on HTTPS before public
-release. That DNS/deployment condition is separate from the locally verified
-implementation.
+## Known gaps
 
-## Independent verification 1 — 2026-09-05
-
-Verdict: **FAIL** with 9 findings and 8 untested public claims. See
-`.factory/verification-1.md` for evidence and severity.
-
-The live host now resolves and serves the reviewed implementation. Its
-`index.html` matches the clean candidate build. Fresh desktop and phone runs
-completed the demo, reset, storage-isolation, real-match entry, keyboard,
-touch, route, legal, focus, reduced-motion, recovery, and timed end-screen
-paths. All 11 declared claim commands, the full test suite, build, URL verifier,
-and live Lighthouse run passed. Lighthouse scored 100 in all four measured
-categories, and the live phone profile measured 60.00 fps.
-
-Acceptance remains blocked by the missing room-code multiplayer job. Other
-findings cover the unusable second-player phone controls, incomplete claim
-inventory, 200% text reflow, 34 px demo controls, missing live CSP and
-Permissions-Policy headers, kickoff Pause no-op, soft-404 status, and the
-missing actionable privacy contact.
+No acceptance gap remains from verification 1. Codekick intentionally has no
+public queue, accounts, leagues, licensed teams, payment, analytics, or offline
+claim. The researched release is free, so there is no billing offer to
+register. Room access is anonymous and lasts six hours; it is not an account or
+long-term match archive.

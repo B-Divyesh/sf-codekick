@@ -1039,8 +1039,9 @@ mod tests {
         AppState::open(directory.path().join("rooms.sqlite3"), 4.0).unwrap()
     }
 
-    #[test]
-    fn claim_room_persistence_survives_restart() {
+    /// @claim:room-persistence
+    #[tokio::test(flavor = "multi_thread", worker_threads = 2)]
+    async fn claim_room_persistence_survives_restart() {
         let directory = tempfile::tempdir().unwrap();
         let state = test_state(&directory);
         let (sender, _) = broadcast::channel(8);
@@ -1061,11 +1062,63 @@ mod tests {
         state.save_room(&room).unwrap();
         drop(state);
         let restarted = test_state(&directory);
-        let rooms = restarted.rooms.lock().unwrap();
-        let restored = rooms.get("KICK24").unwrap();
-        assert_eq!(restored.tick, 42);
-        assert_eq!(restored.members[0].slot, "sun-1");
-        assert!(restored.expires_at - unix_time() >= ROOM_TTL_SECONDS - 2);
+        {
+            let mut rooms = restarted.rooms.lock().unwrap();
+            let restored = rooms.get_mut("KICK24").unwrap();
+            assert_eq!(restored.tick, 42);
+            assert_eq!(restored.members[0].slot, "sun-1");
+            assert!(restored.expires_at - unix_time() >= ROOM_TTL_SECONDS - 2);
+
+            restored.updated_at = unix_time() - ROOM_TTL_SECONDS - 1;
+            restored.expires_at = restored.updated_at + ROOM_TTL_SECONDS;
+            let expired = restored.clone();
+            drop(rooms);
+            restarted.save_room(&expired).unwrap();
+        }
+
+        let simulation = tokio::spawn(tick_rooms(restarted.clone()));
+        time::timeout(Duration::from_secs(2), async {
+            loop {
+                let removed_from_memory = !restarted.rooms.lock().unwrap().contains_key("KICK24");
+                let removed_from_sqlite = restarted
+                    .database
+                    .lock()
+                    .unwrap()
+                    .query_row(
+                        "SELECT COUNT(*) FROM rooms WHERE code = ?1",
+                        ["KICK24"],
+                        |row| row.get::<_, i64>(0),
+                    )
+                    .unwrap()
+                    == 0;
+                if removed_from_memory && removed_from_sqlite {
+                    break;
+                }
+                time::sleep(Duration::from_millis(10)).await;
+            }
+        })
+        .await
+        .expect("expired room should be removed from memory and SQLite");
+        simulation.abort();
+
+        let address = SocketAddr::from(([127, 0, 0, 1], 5001));
+        let join = join_room(
+            State(restarted.clone()),
+            ConnectInfo(address),
+            Path("KICK24".into()),
+        )
+        .await;
+        assert_eq!(join.status(), StatusCode::NOT_FOUND);
+
+        drop(restarted);
+        let restarted_after_expiry = test_state(&directory);
+        assert!(
+            !restarted_after_expiry
+                .rooms
+                .lock()
+                .unwrap()
+                .contains_key("KICK24")
+        );
     }
 
     #[tokio::test(flavor = "multi_thread", worker_threads = 2)]
@@ -1115,6 +1168,7 @@ mod tests {
         time::sleep(Duration::from_millis(20)).await;
     }
 
+    /// @claim:online-four-minute
     #[test]
     fn online_match_uses_a_four_minute_clock() {
         let state = MatchState::new(240.0);
@@ -1123,6 +1177,7 @@ mod tests {
         assert_eq!(state.score.tide, 0);
     }
 
+    /// @claim:room-health
     #[tokio::test]
     async fn health_checks_sqlite() {
         let directory = tempfile::tempdir().unwrap();
@@ -1130,6 +1185,7 @@ mod tests {
         assert_eq!(response.status(), StatusCode::OK);
     }
 
+    /// @claim:room-rate-limit
     #[tokio::test]
     async fn rate_limit_returns_429_with_retry_after() {
         let directory = tempfile::tempdir().unwrap();

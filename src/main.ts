@@ -227,9 +227,9 @@ function notFoundPage(): string {
 }
 
 function renderRoute(moveFocus = false) {
-  activeGame?.destroy();
-  activeGame = undefined;
   const route = getRoute();
+  activeGame?.destroy(route !== '/demo');
+  activeGame = undefined;
   writeMeta(route);
   const page = route === '/' ? homePage(false)
     : route === '/demo' ? homePage(true)
@@ -247,12 +247,6 @@ function renderRoute(moveFocus = false) {
       const destination = link.getAttribute('href');
       if (!destination || !destination.startsWith('/')) return;
       event.preventDefault();
-      if (route === '/demo' && destination === '/') {
-        try {
-          window.localStorage.removeItem('demo:codekick:match');
-          window.localStorage.removeItem('demo:codekick:settings');
-        } catch { /* Navigation still leaves the demo sandbox. */ }
-      }
       navigate(destination);
     });
   });
@@ -354,7 +348,7 @@ class GameView {
 
   private render() {
     this.host.insertAdjacentHTML('beforeend', `
-      ${this.demo ? `<aside class="demo-banner" aria-label="Demo mode"><strong>Demo — sample data, nothing is saved</strong><span>Sample state stays separate from your local match.</span><button class="text-button" type="button" data-reset-demo>Reset demo</button><button class="text-button" type="button" data-start-real>Start for real</button></aside>` : ''}
+      ${this.demo ? `<section class="demo-banner" aria-label="Demo mode"><strong>Demo — sample data, nothing is saved</strong><span>Sample state stays separate from your local match.</span><button class="text-button" type="button" data-reset-demo>Reset demo</button><button class="text-button" type="button" data-start-real>Start for real</button></section>` : ''}
       ${this.demo ? '' : `<section class="room-panel" aria-labelledby="room-title">
         <div><h3 id="room-title">Play with friends by room code</h3><p>Create a room or enter the code a friend sent.</p></div>
         <div class="room-actions">
@@ -551,10 +545,6 @@ class GameView {
       button.addEventListener('click', () => this.resetDemo());
     });
     this.host.querySelector<HTMLButtonElement>('[data-start-real]')?.addEventListener('click', () => {
-      try {
-        window.localStorage.removeItem('demo:codekick:match');
-        window.localStorage.removeItem('demo:codekick:settings');
-      } catch { /* A navigation still leaves the demo screen. */ }
       navigate('/');
     });
     this.host.querySelector<HTMLButtonElement>('[data-finish-demo]')?.addEventListener('click', () => {
@@ -950,10 +940,17 @@ class GameView {
     ctx.beginPath(); ctx.arc(ball.x, ball.y, 3.5, 0, Math.PI * 2); ctx.fill();
   }
 
-  destroy() {
+  destroy(discardDemo = false) {
     this.destroyed = true;
     window.cancelAnimationFrame(this.animation);
-    this.saveEngine();
+    if (this.demo && discardDemo) {
+      try {
+        window.localStorage.removeItem(this.storeKey);
+        window.localStorage.removeItem(this.settingsKey);
+      } catch { /* The demo is still abandoned when storage is disabled. */ }
+    } else {
+      this.saveEngine();
+    }
     if (this.online?.retry) window.clearTimeout(this.online.retry);
     this.online?.socket?.close();
     this.resizeObserver?.disconnect();

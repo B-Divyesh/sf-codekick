@@ -46,8 +46,11 @@ test('@claim:settings-persist Settings persist in their browser namespace', asyn
 });
 
 test('@claim:demo-isolation Reset and leaving the demo do not carry sample match state into a local match', async ({ page }) => {
+  await page.goto('/');
+  await page.evaluate(() => localStorage.setItem('codekick:verification-sentinel', 'real-data'));
   await page.goto('/demo');
   await page.getByRole('button', { name: 'Finish the sample match' }).click();
+  await expect.poll(() => page.evaluate(() => localStorage.getItem('demo:codekick:match'))).not.toBeNull();
   await page.getByRole('button', { name: 'Reset demo' }).first().click();
   await expect(page.locator('.score-strip')).toContainText('SUN 2');
   await page.getByRole('button', { name: 'Start for real' }).click();
@@ -55,6 +58,11 @@ test('@claim:demo-isolation Reset and leaving the demo do not carry sample match
   await expect(page.getByLabel('Demo mode')).toHaveCount(0);
   await expect(page.locator('.score-strip')).toContainText('SUN 0');
   await expect(page.locator('.score-strip')).toContainText('0 TIDE');
+  expect(await page.evaluate(() => ({
+    demoMatch: localStorage.getItem('demo:codekick:match'),
+    demoSettings: localStorage.getItem('demo:codekick:settings'),
+    realSentinel: localStorage.getItem('codekick:verification-sentinel')
+  }))).toEqual({ demoMatch: null, demoSettings: null, realSentinel: 'real-data' });
 });
 
 test('@claim:local-demo-data Demo play sends no match data away from this origin', async ({ page, baseURL }) => {
@@ -406,10 +414,10 @@ test('invalid room codes and damaged browser state recover with a clear next act
   await expect(page.locator('[data-dialog-pass]')).toHaveText('F');
 });
 
-test('has no serious or critical accessibility violations on the game and privacy pages', async ({ page }) => {
-  for (const path of ['/', '/demo', '/privacy']) {
+test('has no axe accessibility violations on every public page', async ({ page }) => {
+  for (const path of ['/', '/demo', '/how-to-play', '/privacy', '/terms']) {
     await page.goto(path);
     const results = await new AxeBuilder({ page: page as never }).analyze();
-    expect(results.violations.filter((violation) => ['serious', 'critical'].includes(violation.impact ?? '')).map((violation) => violation.id)).toEqual([]);
+    expect(results.violations.map((violation) => ({ id: violation.id, impact: violation.impact }))).toEqual([]);
   }
 });

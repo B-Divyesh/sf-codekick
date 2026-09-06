@@ -172,7 +172,7 @@
     "claim": "Room state persists across a service restart and expires after six hours.",
     "where": "Privacy page, README",
     "test": "npm run test:server -- claim_room_persistence_survives_restart",
-    "sandbox": "Write a room to a temporary SQLite database, reopen the service state, and assert room, player slot, tick, and expiry."
+    "sandbox": "Write a room to temporary SQLite and reopen it. Move its last action past six hours, run cleanup, then assert memory and SQLite removal, rejected join, and absence after restart."
   },
   {
     "id": "room-rate-limit",
